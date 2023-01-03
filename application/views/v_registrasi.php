@@ -17,7 +17,7 @@
     </select>
     <hr>
     Nama : <input type="text" name="nama" value=""  /> <br>
-    Email : <input type="email" name="email" value="musaeri.kjt@gmail.com" required /> <br>
+    Email : <input type="email" name="email"  required /> <br>
     Nomor : <input type="number" name="notelpon" value=""  />
     <input type="submit" value="Daftar">
 

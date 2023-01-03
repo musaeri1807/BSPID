@@ -17,7 +17,7 @@
         <option value="forgot">Forgot password</option>
     </select>
     <hr>
-    <input type="email" name="email" value="musaeri.kjt@gmail.com" required />
+    <input type="email" name="email"  required />
     <input type="submit" value="Reset Password">
 
     <?php

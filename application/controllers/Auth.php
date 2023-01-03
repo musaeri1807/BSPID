@@ -92,7 +92,7 @@ class Auth extends CI_Controller
 		$dmaile = $get_nas->row();
 
 		if ($get_nas->num_rows() > 0) {
-			echo "samadengan 1";
+			// echo "samadengan 1";
 			$nama = $dmaile->field_nama;
 			$password = $dmaile->field_password;
 		} else {
@@ -101,7 +101,7 @@ class Auth extends CI_Controller
 		}
 
 
-		die();
+		// die();
 
 		$tokenn = md5('musaeri1807@gmail.com');
 		$password = 'P@ssw0rd';

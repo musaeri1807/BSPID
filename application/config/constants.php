@@ -94,13 +94,13 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 } else {
     // Online
     define('HOSTNAME', 'localhost');
-    define('USERNAME', 'sidh9418_vpsbsp');
-    define('PASSWORD', 'XY5Zr4.leE9&');
-    define('DATABASE', 'sidh9418_vpsbsp');
+    define('USERNAME', 'u1733358_vpsbsp');
+    define('PASSWORD', 'w%{%bJog*Yg9');
+    define('DATABASE', 'u1733358_vpsbsp');
 }
 
 //email
-define('SERVERMAIL', 'mx.mailspace.id');
-define('EMAIL', 'no_reply@miga.co.id');
-define('PASSMAIL', 'v7GG1OJZ42ciw');
+define('SERVERMAIL', 'mail.bspid.id');
+define('EMAIL', 'no-replay@bspid.id');
+define('PASSMAIL', 'Y3t,?@$BgX5f');
 //email
