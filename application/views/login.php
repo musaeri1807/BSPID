@@ -40,7 +40,7 @@
 
       <form action="<?php echo base_url('Auth/login'); ?>" method="post">
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email" name="txt_email" value="musaeri.kjt@gmail.com">
+          <input type="email" class="form-control" placeholder="Email" name="txt_email">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
