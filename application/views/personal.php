@@ -102,20 +102,20 @@
             <div class="form-group">
               <label for="passLama" class="col-sm-2 control-label">NIK</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php echo $customer->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 9999999999'" data-mask>
+                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 9999999999'" data-mask>
               </div>
             </div>
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">NPWP</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php echo $customer->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 999999999'" data-mask>
+                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 999999999'" data-mask>
               </div>
             </div>
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">Gender</label>
               <div class="col-sm-10">
                 <select class="form-control" name="" id="">
-                  <?php if ($customer->field_jenkel == 'L') {
+                  <?php if ($nasabah->field_jenkel == 'L') {
                     echo '<option value="L">Laki-Laki</option>';
                   } else {
                     echo '<option value="P">Perempuan</option>';
@@ -130,27 +130,27 @@
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">Tempat Lahir</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php echo $customer->Nik_Nasabah; ?>">
+                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>">
               </div>
             </div>
             <div class="form-group">
               <label for="Datettl" class="col-sm-2 control-label">Date of Birth</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" value="<?php echo $customer->Nik_Nasabah; ?>" id="datepicker">
+                <input type="date" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" id="datepicker">
               </div>
             </div>
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Alamat</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="txt_alamat" value="<?php echo $customer->Nik_Nasabah; ?>" placeholder="Alamat">
-                <!-- <textarea class="form-control" name="txt_alamat" rows="3" placeholder="<?php echo $customer->field_alamat; ?> "></textarea> -->
+                <input type="text" class="form-control" name="txt_alamat" value="<?php echo $nasabah->Nik_Nasabah; ?>" placeholder="Alamat">
+                <!-- <textarea class="form-control" name="txt_alamat" rows="3" placeholder="<?php echo $nasabah->field_alamat; ?> "></textarea> -->
               </div>
             </div>
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Provinsi</label>
               <div class="col-sm-10">
                 <select name="prov" class="form-control" id="provinsi">
-                  <option value="<?php echo $customer->field_provinsi; ?>"><?php echo $customer->field_provinsi; ?></option>
+                  <option value="<?php echo $nasabah->Provinsi_N; ?>"><?php echo $nasabah->Provinsi_N; ?></option>
                   <?php
 
                   foreach ($provinsi as $prov) {
@@ -165,7 +165,7 @@
               <div class="col-sm-10">
 
                 <select name="kab" class="form-control" id="kabupaten">
-                  <option value='<?php echo $customer->field_kabupaten; ?>'><?php echo $customer->field_kabupaten; ?></option>
+                  <option value='<?php echo $nasabah->Kabupaten_N; ?>'><?php echo $nasabah->Kabupaten_N; ?></option>
                 </select>
               </div>
             </div>
@@ -173,7 +173,7 @@
               <label for="passKonf" class="col-sm-2 control-label">Kecamatan</label>
               <div class="col-sm-10">
                 <select name="kec" class="form-control" id="kecamatan">
-                  <option value="<?php echo $customer->field_kecamatan; ?>"><?php echo $customer->field_kecamatan; ?></option>
+                  <option value="<?php echo $nasabah->Kecamatan_N; ?>"><?php echo $nasabah->Kecamatan_N; ?></option>
                 </select>
               </div>
             </div>
@@ -181,7 +181,7 @@
               <label for="passKonf" class="col-sm-2 control-label">Kelurahan / Desa</label>
               <div class="col-sm-10">
                 <select name="des" class="form-control" id="desa">
-                  <option value="<?php echo $customer->field_kelurahan; ?>"><?php echo $customer->field_kelurahan; ?></option>
+                  <option value="<?php echo $nasabah->Kelurahan_N; ?>"><?php echo $nasabah->Kelurahan_N; ?></option>
                 </select>
               </div>
             </div>

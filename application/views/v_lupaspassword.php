@@ -8,8 +8,9 @@
 
 <body>
     <?php
-    echo $this->session->flashdata('email_sent');
+    //echo $this->session->flashdata('email_sent');
     echo $this->session->flashdata('message');
+    //echo $this->session->flashdata('msg');
     echo form_open('/Auth/send_mail');
     ?>
     <select name="pilih" id="pilih">
@@ -17,7 +18,7 @@
     </select>
     <hr>
     <input type="email" name="email" value="musaeri.kjt@gmail.com" required />
-    <input type="submit" value="SEND MAIL">
+    <input type="submit" value="Reset Password">
 
     <?php
     echo form_close();

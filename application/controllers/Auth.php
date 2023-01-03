@@ -9,6 +9,7 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->library('session');
 		$this->load->model('M_auth');
 		require APPPATH . 'third_party/PHPMailer/Exception.php';
 		require APPPATH . 'third_party/PHPMailer/PHPMailer.php';
@@ -75,24 +76,36 @@ class Auth extends CI_Controller
 		redirect('Auth');
 	}
 
+	//verifikasi
+	public function verifikasi()
+	{
+		$email = $this->input->get('M');
+		var_dump($email);
+	}
 	//Kirim Email
 	public function send_mail()
 	{
-		//select * FROM userlogin Where email='emailuser' kemudian ambil data Password untuk dikirim ke email user
+		$email = $this->input->post('email');
+		// $email='musaeri.kjt@gmail.com';
+		$sql = "SELECT * FROM tbluserlogin WHERE field_email ='$email'";
+		$get_nas = $this->db->query($sql);
+		$dmaile = $get_nas->row();
 
-		// $SQL = "SELECT * FROM tbluserlogin";
-		// $query = $this->db->query($SQL);
-		// $row = $query->row();
+		if ($get_nas->num_rows() > 0) {
+			echo "samadengan 1";
+			$nama = $dmaile->field_nama;
+			$password = $dmaile->field_password;
+		} else {
+			//$this->session->set_flashdata('message', 'Email Tidak Di Temukan');
+			echo "Alamat Email Tidak Ditemukan";
+		}
 
-		// echo $row->field_nama;
 
-		// // var_dump($row['field_nama']);
-		// die();
+		die();
 
-		$nama = 'Musaeri';
 		$tokenn = md5('musaeri1807@gmail.com');
 		$password = 'P@ssw0rd';
-		$email = $this->input->post('email');
+
 
 		$from = 'No Replay';
 		if ($this->input->post('pilih') == 'forgot') {
@@ -131,7 +144,8 @@ class Auth extends CI_Controller
 			echo 'Message could not be sent.';
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
-			$this->session->set_flashdata('message', 'Email Terkirim');
+			$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
+			// $this->session->set_flashdata('message', 'Email Terkirim');
 			redirect('Auth');
 		}
 	}

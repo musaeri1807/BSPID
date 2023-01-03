@@ -101,6 +101,6 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
 //email
 define('SERVERMAIL', 'mx.mailspace.id');
-define('EMAIL', 'noreply@miga.co.id');
-define('PASSMAIL', 'gDSg8oHGOC3iB');
+define('EMAIL', 'no_reply@miga.co.id');
+define('PASSMAIL', 'v7GG1OJZ42ciw');
 //email

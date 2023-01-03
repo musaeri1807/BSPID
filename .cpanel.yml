@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/sidh9418/public_html/miga.my.id
+    - export DEPLOYPATH=/home/u1733358/public_html
     - /bin/cp -R application $DEPLOYPATH
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R assets_ $DEPLOYPATH

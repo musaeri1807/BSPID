@@ -125,7 +125,7 @@
     <div>
       <p> Kami mohon maaf atas ketidaknyamanan ini, Anda masih bisa menghubungi kami di
         <a href="mailto:info@miga.co.id">info@miga.co.id</a>. atau Chat melalui
-        <a href="https://api.whatsapp.com/send?phone=6281290908320"">Watsapp</a></p>
+        <a href="https://api.whatsapp.com/send?phone=6281290908320"">WhatsApp</a></p>
       <p>&mdash; Kami akan segera kembali!!!</p>
     </div>
   </div>

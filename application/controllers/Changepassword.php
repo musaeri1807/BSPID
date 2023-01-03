@@ -22,15 +22,10 @@ class Changepassword extends AUTH_Controller
 		$get_prov = $this->db->select('*')->from('tblwilayahprovinsi')->get();
 		$data['provinsi'] = $get_prov->result();
 		$data['path'] = base_url('assets');
-
 		$sql = "SELECT * FROM tblnasabah N JOIN tbluserlogin U WHERE U.field_member_id =$id";
-
-		$get_cus = $this->db->query($sql);
-
-		$data['customer'] = $get_cus->row();
-		// var_dump($data);
-		// die();
-		$this->template->views('password', $data);
+		$get_nas = $this->db->query($sql);
+		$data['nasabah'] = $get_nas->row();
+		$this->template->views('v_password', $data);
 	}
 
 	// function index()

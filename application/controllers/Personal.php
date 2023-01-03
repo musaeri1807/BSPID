@@ -24,10 +24,9 @@ class Personal extends AUTH_Controller
 		$data['path'] = base_url('assets');
 
 		$sql = "SELECT * FROM tblnasabah N JOIN tbluserlogin U WHERE U.field_member_id =$id";
-
 		$get_cus = $this->db->query($sql);
 
-		$data['customer'] = $get_cus->row();
+		$data['nasabah'] = $get_cus->row();
 		// var_dump($data);
 		// die();
 		$this->template->views('personal', $data);

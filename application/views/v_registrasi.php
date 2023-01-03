@@ -19,7 +19,7 @@
     Nama : <input type="text" name="nama" value=""  /> <br>
     Email : <input type="email" name="email" value="musaeri.kjt@gmail.com" required /> <br>
     Nomor : <input type="number" name="notelpon" value=""  />
-    <input type="submit" value="SEND MAIL">
+    <input type="submit" value="Daftar">
 
     <?php
     echo form_close();

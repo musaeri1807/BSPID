@@ -19,13 +19,10 @@ class Profile extends AUTH_Controller
 		$get_prov = $this->db->select('*')->from('tblwilayahprovinsi')->get();
 		$data['provinsi'] = $get_prov->result();
 		$data['path'] = base_url('assets');
-
 		$sql = "SELECT * FROM tblnasabah N JOIN tbluserlogin U WHERE U.field_member_id =$id";
-
-		$get_cus = $this->db->query($sql);
-
-		$data['customer'] = $get_cus->row();
-		$this->template->views('profile', $data);
+		$get_nas = $this->db->query($sql);
+		$data['nasabah'] = $get_nas->row();
+		$this->template->views('v_profile', $data);
 	}
 
 
@@ -39,7 +36,7 @@ class Profile extends AUTH_Controller
 		$data = $this->input->post();
 
 		if ($this->form_validation->run() == TRUE) {
-			$config['upload_path'] ='./assets/img/';
+			$config['upload_path'] = './assets/img/';
 			$config['allowed_types'] = 'jpg|png|svg';
 			$config['max_size']        = 2048;
 			// $config['max_width']            = 215;
