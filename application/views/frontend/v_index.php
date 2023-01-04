@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Kontak</a>
-                <a href="<?php echo base_url('auth')?>" class="nav-item nav-link">Login</a>
+                <a href="<?php echo base_url('auth') ?>" class="nav-item nav-link">Login</a>
             </div>
         </div>
     </nav>
@@ -101,25 +101,58 @@
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="<?php echo base_url(); ?>assets_frontend/img/carousel-1.jpg" alt="Image">
+                    <img class="w-100" src="<?php echo base_url(); ?>assets_frontend/img/carousel/header-web_pages-to-jpg-0001.jpg" alt="Image">
                     <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
-                        <div class="text-start p-5" style="max-width: 900px;">
+                        <!-- <div class="text-start p-5" style="max-width: 900px;">
                             <h3 class="text-white">#</h3>
                             <h1 class="display-1 text-white mb-md-4">#</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Login Unit</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5">Login Personal</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="<?php echo base_url(); ?>assets_frontend/img/carousel-2.jpg" alt="Image">
+                    <img class="w-100" src="<?php echo base_url(); ?>assets_frontend/img/carousel/header-web_pages-to-jpg-0002.jpg" alt="Image">
                     <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
-                        <div class="text-start p-5" style="max-width: 900px;">
+                        <!-- <div class="text-start p-5" style="max-width: 900px;">
                             <h3 class="text-white">#</h3>
                             <h1 class="display-1 text-white mb-md-4">#</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Login Unit</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5">Login Personal</a>
-                        </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="<?php echo base_url(); ?>assets_frontend/img/carousel/header-web_pages-to-jpg-0003.jpg" alt="Image">
+                    <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
+                        <!-- <div class="text-start p-5" style="max-width: 900px;">
+                            <h3 class="text-white">#</h3>
+                            <h1 class="display-1 text-white mb-md-4">#</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Login Unit</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5">Login Personal</a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="<?php echo base_url(); ?>assets_frontend/img/carousel/header-web_pages-to-jpg-0004.jpg" alt="Image">
+                    <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
+                        <!-- <div class="text-start p-5" style="max-width: 900px;">
+                            <h3 class="text-white">#</h3>
+                            <h1 class="display-1 text-white mb-md-4">#</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Login Unit</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5">Login Personal</a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="<?php echo base_url(); ?>assets_frontend/img/carousel/header-web_pages-to-jpg-0005.jpg" alt="Image">
+                    <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
+                        <!-- <div class="text-start p-5" style="max-width: 900px;">
+                            <h3 class="text-white">#</h3>
+                            <h1 class="display-1 text-white mb-md-4">#</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Login Unit</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5">Login Personal</a>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -141,19 +174,19 @@
         <div class="container">
             <div class="row gx-0">
                 <div class="col-md-6">
-                    <div class="bg-primary bg-vegetable d-flex flex-column justify-content-center p-5" style="height: 300px;">
+                    <div class="bg-primary bg-vegetable d-flex flex-column justify-content-center p-5" style="height: 150px;">
                         <h3 class="text-white mb-3">Daftar Sebagai Nasabah</h3>
-                        <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
-                            lorem diam no duo sed dolore amet diam</p>
+                        <!-- <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
+                            lorem diam no duo sed dolore amet diam</p> -->
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
                         <a href="" class="btn btn-secondary py-md-3 px-md-5">Daftar Personal</a>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style="height: 300px;">
+                    <div class="bg-secondary bg-fruit d-flex flex-column justify-content-center p-5" style="height: 150px;">
                         <h3 class="text-white mb-3">Daftar Sebagai Unit</h3>
-                        <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
-                            lorem diam no duo sed dolore amet diam</p>
+                        <!-- <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
+                            lorem diam no duo sed dolore amet diam</p> -->
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
                         <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Daftar Unit </a>
                     </div>
