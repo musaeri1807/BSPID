@@ -36,7 +36,7 @@
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                    <h2 class="mb-0">081380451211</h2>
+                    <h2 class="mb-0"></h2>
                 </div>
             </div>
             <div class="col-lg-6">
