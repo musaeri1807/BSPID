@@ -90,7 +90,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('HOSTNAME', 'localhost');
     define('USERNAME', 'root');
     define('PASSWORD', '');
-    define('DATABASE', 'vpsbsp');
+    define('DATABASE', 'local_vpsbsp');
 } else {
     // Online
     define('HOSTNAME', 'localhost');

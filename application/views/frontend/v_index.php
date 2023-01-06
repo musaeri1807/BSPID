@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>BSPID</title>
+    <title><?php $titale; ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Bank Sampah" name="keywords">
+    <meta content="Bank Sampah Pintar" name="keywords">
     <meta content="Digitalikasi" name="description">
 
     <!-- Favicon -->
-    <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bsp.png" rel="icon">
+    <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -42,7 +42,7 @@
             <div class="col-lg-6">
                 <div class="d-flex align-items-center justify-content-center">
                     <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/LOGO.png" alt="">
-                    <a href="index.html" class="navbar-brand ms-lg-3">
+                    <a href="<?php echo base_url(); ?>" class="navbar-brand ms-lg-3">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Bank Sampah</span> Pintar
                         </h1>
                         <h3>Digitalisasi Sampah </h3>
@@ -75,20 +75,20 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
                 <a href="<?php echo base_url(); ?>" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">Tentang Kami</a>
-                <a href="service.html" class="nav-item nav-link">Layanan</a>
-                <a href="product.html" class="nav-item nav-link">Produk</a>
-                <div class="nav-item dropdown">
+                <!-- <a href="about.html" class="nav-item nav-link">Tentang Kami</a>
+                <a href="service.html" class="nav-item nav-link">Layanan</a> -->
+                <!-- <a href="product.html" class="nav-item nav-link">Produk</a> -->
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
                     <div class="dropdown-menu m-0">
                         <a href="blog.html" class="dropdown-item">Karir</a>
                         <a href="detail.html" class="dropdown-item">Layanan Bank</a>
-                        <!-- <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="feature.html" class="dropdown-item">Features</a>
                         <a href="team.html" class="dropdown-item">The Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a> -->
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                     </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Kontak</a>
+                </div> -->
+                <!-- <a href="contact.html" class="nav-item nav-link">Kontak</a> -->
                 <a href="<?php echo base_url('auth') ?>" class="nav-item nav-link">Login</a>
             </div>
         </div>
