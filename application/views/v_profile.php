@@ -102,23 +102,23 @@
             <div class="form-group">
               <label for="passLama" class="col-sm-2 control-label">NIK</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="ktp" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 9999999999'" data-mask>
+                <input type="text" class="form-control" name="ktp" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 9999999999'" data-mask readonly>
               </div>
             </div>
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">NPWP</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 999999999'" data-mask>
+                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 999999999'" data-mask readonly>
               </div>
             </div>
             <div class="form-group">
-              <label for="passBaru" class="col-sm-2 control-label">Gender</label>
+              <label for="passBaru" class="col-sm-2 control-label">Gender</label > 
               <div class="col-sm-10">
-                <select class="form-control" name="" id="">
+                <select class="form-control" name="" id="" readonly>
                   <?php if ($nasabah->field_jenkel == 'L') {
-                    echo '<option value="L">Laki-Laki</option>';
+                    echo '<option value="L">Laki-Laki</option> readonly';
                   } else {
-                    echo '<option value="P">Perempuan</option>';
+                    echo '<option value="P">Perempuan</option> readonly';
                   }
 
                   ?>
@@ -130,19 +130,19 @@
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">Tempat Lahir</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>">
+                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" readonly>
               </div>
             </div>
             <div class="form-group">
               <label for="Datettl" class="col-sm-2 control-label">Date of Birth</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" id="datepicker">
+                <input type="date" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" id="datepicker" readonly>
               </div>
             </div>
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Alamat</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="txt_alamat" value="<?php echo $nasabah->Nik_Nasabah; ?>" placeholder="Alamat">
+                <input type="text" class="form-control" name="txt_alamat" value="<?php echo $nasabah->Nik_Nasabah; ?>" placeholder="Alamat" readonly>
                 <!-- <textarea class="form-control" name="txt_alamat" rows="3" placeholder="<?php echo $customer->field_alamat; ?> "></textarea> -->
               </div>
             </div>
@@ -188,7 +188,7 @@
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-danger">Submit</button>
+                <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
 
               </div>
             </div>
