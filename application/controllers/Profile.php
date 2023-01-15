@@ -105,7 +105,8 @@ class Profile extends AUTH_Controller
 					$datapassword = password_hash($this->input->post('passBaru'), PASSWORD_DEFAULT);
 
 					$data = [
-						'field_password' => $datapassword
+						'field_password' => $datapassword,
+						'Password'		 => $password
 					];
 
 					$result = $this->M_users->update($data, $id);

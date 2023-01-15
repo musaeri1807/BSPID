@@ -87,66 +87,67 @@ class Auth extends CI_Controller
 	{
 		$email = $this->input->post('email');
 		// $email='musaeri.kjt@gmail.com';
-		$sql = "SELECT * FROM tbluserlogin WHERE field_email ='$email'";
+		$sql = "SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1";
 		$get_nas = $this->db->query($sql);
 		// $dmaile = $get_nas->row();
 
+		$query = $this->db->query("SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1");
+		$row = $query->row();
+
+
 		if ($get_nas->num_rows() > 0) {
-			echo "samadengan 1";
-			$nama = $dmaile->field_nama;
-			$password = $dmaile->field_password;
+			// echo "samadengan 1";
+			// die();
+
+			$tokenn = md5('sadfkjkjiqwfkjifqwfwfu');
+			$nama = $row->field_nama;
+			$password = $row->Password;
+
+			$from = 'No Replay';
+			if ($this->input->post('pilih') == 'forgot') {
+				$subject = 'Reset Password';
+				$content = 'Reset Password';
+				$button  = 'Ubah Sandi';
+			} else {
+				$subject = 'Akun Verifikasi';
+				$content = 'Pendaftaran';
+				$button  = 'Aktifkan';
+			}
+
+
+			// PHPMailer object
+			// $response = false;
+			$mail = new PHPMailer();
+
+			// SMTP configuration
+			$mail->isSMTP();
+			$mail->Host     = SERVERMAIL; //sesuaikan sesuai nama domain hosting/server yang digunakan
+			$mail->SMTPAuth = true;
+			$mail->Username = EMAIL; // user email
+			$mail->Password = PASSMAIL; // password email
+			$mail->SMTPSecure = 'ssl';
+			$mail->Port     = 465;
+
+			$mail->setFrom(EMAIL, $from); // user email
+			$mail->addReplyTo('', 'noreply'); //user email
+			$mail->addAddress($this->input->post('email')); //email tujuan pengiriman email
+			$mail->Subject = $subject; //subject email
+			$mail->isHTML(true);
+			$mail->Body = sendmailuser($nama, $email, $content, $password, $tokenn, $button);
+
+			// Send email
+			if (!$mail->send()) {
+				echo 'Message could not be sent.';
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+			} else {
+				$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
+				// $this->session->set_flashdata('message', 'Email Terkirim');
+				redirect('Auth');
+			}
 		} else {
-			//$this->session->set_flashdata('message', 'Email Tidak Di Temukan');
-			echo "Alamat Email Tidak Ditemukan";
-		}
-
-
-		// die();
-
-		$tokenn = md5('musaeri1807@gmail.com');
-		$password = 'P@ssw0rd';
-
-
-		$from = 'No Replay';
-		if ($this->input->post('pilih') == 'forgot') {
-			$subject = 'Reset Password';
-			$content = 'Reset Password';
-			$button  = 'Ubah Sandi';
-		} else {
-			$subject = 'Akun Verifikasi';
-			$content = 'Pendaftaran';
-			$button  = 'Aktifkan';
-		}
-
-
-		// PHPMailer object
-		// $response = false;
-		$mail = new PHPMailer();
-
-		// SMTP configuration
-		$mail->isSMTP();
-		$mail->Host     = SERVERMAIL; //sesuaikan sesuai nama domain hosting/server yang digunakan
-		$mail->SMTPAuth = true;
-		$mail->Username = EMAIL; // user email
-		$mail->Password = PASSMAIL; // password email
-		$mail->SMTPSecure = 'ssl';
-		$mail->Port     = 465;
-
-		$mail->setFrom(EMAIL, $from); // user email
-		$mail->addReplyTo('', 'noreply'); //user email
-		$mail->addAddress($this->input->post('email')); //email tujuan pengiriman email
-		$mail->Subject = $subject; //subject email
-		$mail->isHTML(true);
-		$mail->Body = sendmailuser($nama, $email, $content, $password, $tokenn, $button);
-
-		// Send email
-		if (!$mail->send()) {
-			echo 'Message could not be sent.';
-			echo 'Mailer Error: ' . $mail->ErrorInfo;
-		} else {
-			$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
-			// $this->session->set_flashdata('message', 'Email Terkirim');
-			redirect('Auth');
+			// $this->session->set_flashdata('message', '');
+			$this->session->set_flashdata('msg', show_err_msg('Email Tidak Di Temukan'));
+			redirect('Frontend');
 		}
 	}
 }
