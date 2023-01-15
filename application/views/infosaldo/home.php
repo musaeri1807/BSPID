@@ -24,13 +24,13 @@
               <th scope="row">1</th>
               <td>Nama Lengkap</td>
               <td>:</td>
-              <td><?php echo $dataInfosaldo->field_nama_customer; ?></td>
+              <td><?php echo $dataInfosaldo->NAMA; ?></td>
             </tr>
             <tr>
               <th scope="row">2</th>
               <td>Rekening</td>
               <td>:</td>
-              <td><?php echo $dataInfosaldo->field_rekening; ?></td>
+              <td><?php echo $dataInfosaldo->REKENING; ?></td>
             </tr>
             <tr>
               <th scope="row">2</th>

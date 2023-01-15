@@ -8,8 +8,13 @@ class M_saldo extends CI_Model
 		// $data = $this->db->get('tbltrxmutasisaldo');
 
 		// $sql = "SELECT * FROM tbltrxmutasisaldo WHERE field_member_id='{$id}' ORDER BY field_id_saldo DESC LIMIT 1";
-		$sql ="SELECT S.*,C.field_nama_customer FROM tbltrxmutasisaldo S 
-		LEFT JOIN tblcustomer C ON S.field_member_id=C.field_member_id 		
+		$sql = "SELECT 
+		S.* ,
+		N.No_Rekening AS REKENING,
+		U.field_nama AS NAMA		
+		FROM tbltrxmutasisaldo S 
+		LEFT JOIN tblnasabah N ON S.field_rekening=N.No_Rekening
+		LEFT JOIN tbluserlogin U ON N.id_UserLogin=U.field_user_id 		
 		WHERE S.field_member_id='{$id}' ORDER BY field_id_saldo DESC LIMIT 1";
 
 		$data = $this->db->query($sql);

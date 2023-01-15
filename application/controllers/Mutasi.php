@@ -15,8 +15,7 @@ class Mutasi extends AUTH_Controller
 		$data['userdata'] 	= $this->userdata;		
 		$id = $this->userdata->field_member_id;
 
-		// var_dump($id);
-		// die();
+
 		$data['dataMutasi'] = $this->M_mutasi->select_all($id);
 		$data['page'] 		= "mutasi";
 		$data['judul'] 		= "Data Mutasi";

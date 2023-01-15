@@ -4,6 +4,12 @@
 <head>
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
   <title>Maintenance</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Bank Sampah Pintar" name="keywords">
+  <meta content="Digitalikasi" name="description">
+
+  <!-- Favicon -->
+  <link href="assets_frontend/img/icon_bspid.png" rel="icon">
   <style type="text/css">
     body {
       text-align: center;

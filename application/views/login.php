@@ -46,13 +46,13 @@
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password" name="txt_password" value="P@ssw0rd">
+          <input type="password" class="form-control" placeholder="Password" name="txt_password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
           <!-- <input type="password" class="form-control" placeholder="Password" name="password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-          Anda tidak punya akun? Klik <a href="<?php echo base_url('Auth/registrasi'); ?>">|<b>Registrasi</b> |</a><br>
+          Anda tidak punya akun? Klik <a href="">|<b>Registrasi</b> |</a><br>
           Jika Kehilangan Akses Klik <a href="<?php echo base_url('Auth/lupapassword'); ?>">|<b>Lupa Password</b>|</a>
         </div>
         <div class="row">

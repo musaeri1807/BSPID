@@ -47,7 +47,7 @@
         </select>
 
         <div class="form-group has-feedback">
-          Anda tidak punya akun? Klik <a href="<?php echo base_url('Auth/registrasi'); ?>">|<b>Registrasi</b> |</a> <br>
+          Anda tidak punya akun? Klik <a href="">|<b>Registrasi</b> |</a> <br>
           Silakan klik <a href="<?php echo base_url('Auth/login'); ?>">|<b>Login</b>|</a>
         </div>
         <div class="row">
