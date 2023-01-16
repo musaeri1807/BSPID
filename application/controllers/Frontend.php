@@ -15,9 +15,12 @@ class Frontend extends CI_Controller
 
     public function index()
     {
+		$data['titale'] 	= "BSP";
+        $data['totalunit']  = "3";
+        $data['nasabah'] 	= "226";
+		$data['sampah'] 	= "500000";
 
-
-        $this->load->view('frontend/v_index');
+        $this->load->view('frontend/v_index',$data);
         // $this->load->view('frontend/v_homepage');
         // $this->load->view('frontend/v_footer');
     }

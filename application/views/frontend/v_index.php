@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?php $titale; ?></title>
+    <title><?php echo $titale; ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Bank Sampah Pintar" name="keywords">
     <meta content="Digitalikasi" name="description">
@@ -51,7 +51,7 @@
             </div>
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-end">
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6281380451211"><i class="fab fa-whatsapp"></i></a>
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6285780390850"><i class="fab fa-whatsapp"></i></a>
                     <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/miga-informatika-71b407257/"><i class="fab fa-linkedin-in"></i></a>
@@ -66,7 +66,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
         <a href="index.html" class="navbar-brand d-flex d-lg-none">
-            <img height="50" src="<?php echo base_url(); ?>assets_frontend/img/Banksampahpintar.png" alt="">
+            <img height="50" src="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" alt="">
             <h3 class="m-0 display-4 text-secondary"><span class="text-white">BS</span>P</h3>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -243,7 +243,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white">Bank Sampah Unit</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $totalunit; ?></h1>
                         </div>
                     </div>
                 </div>
@@ -254,7 +254,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white">Nasabah Terdaftar</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $nasabah; ?></h1>
                         </div>
                     </div>
                 </div>
@@ -265,7 +265,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white">Sampah Terkelolah (Kg)</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345678</h1>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $sampah; ?></h1>
                         </div>
                     </div>
                 </div>
@@ -645,20 +645,20 @@
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">+0812 9090 8320 CS 01</p>
+                                <p class="text-white mb-0">62857-8039-0850 CS 01</p>
                             </div>
 
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">+0812 9090 8320 CS 02</p>
+                                <p class="text-white mb-0">62857-8039-0850 CS 02</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">+0812 9090 8320 CS 03</p>
+                                <p class="text-white mb-0">62857-8039-0850 CS 03</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">+0812 9090 8320 CS 04</p>
+                                <p class="text-white mb-0">62857-8039-0850 CS 04</p>
                             </div>
                             <div class="d-flex mt-4">
                                 <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6281380451211"><i class="fab fa-whatsapp"></i></a>
