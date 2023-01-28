@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>FarmFresh - Organic Farm Website Template</title>
+    <title><?php echo $titale; ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="Bank Sampah Pintar" name="keywords">
+    <meta content="Digitalikasi" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,13 +20,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets_frontend/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets_frontend/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets_frontend/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -36,21 +36,25 @@
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                    <h2 class="mb-0">+012 345 6789</h2>
+                    <h2 class="mb-0"></h2>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="d-flex align-items-center justify-content-center">
-                    <a href="index.html" class="navbar-brand ms-lg-5">
-                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Farm</span>Fresh</h1>
+                    <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/LOGO.png" alt="">
+                    <a href="<?php echo base_url(); ?>" class="navbar-brand ms-lg-3">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Bank Sampah</span> Pintar
+                        </h1>
+                        <h3>Digitalisasi Sampah </h3>
                     </a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-end">
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6285780390850"><i class="fab fa-whatsapp"></i></a>
                     <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/miga-informatika-71b407257/"><i class="fab fa-linkedin-in"></i></a>
                     <a class="btn btn-primary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -62,28 +66,30 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
         <a href="index.html" class="navbar-brand d-flex d-lg-none">
-            <h1 class="m-0 display-4 text-secondary"><span class="text-white">Farm</span>Fresh</h1>
+            <img height="50" src="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" alt="">
+            <h3 class="m-0 display-4 text-secondary"><span class="text-white">BS</span>P</h3>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link active">Service</a>
-                <a href="product.html" class="nav-item nav-link">Product</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <a href="<?php echo base_url(); ?>" class="nav-item nav-link ">Home</a>
+                <a href="<?php echo base_url('Frontend/tentangkami'); ?>" class="nav-item nav-link">Tentang Kami</a>
+                <a href="<?php echo base_url('Frontend/layanan'); ?>" class="nav-item nav-link active">Layanan</a>
+                <!-- <a href="product.html" class="nav-item nav-link">Produk</a> -->
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
                     <div class="dropdown-menu m-0">
-                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                        <a href="detail.html" class="dropdown-item">Blog Detail</a>
+                        <a href="blog.html" class="dropdown-item">Karir</a>
+                        <a href="detail.html" class="dropdown-item">Layanan Bank</a>
                         <a href="feature.html" class="dropdown-item">Features</a>
                         <a href="team.html" class="dropdown-item">The Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                     </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div> -->
+                <!-- <a href="contact.html" class="nav-item nav-link">Kontak</a> -->
+                <a href="<?php echo base_url('auth') ?>" class="nav-item nav-link">Login</a>
             </div>
         </div>
     </nav>
@@ -95,15 +101,13 @@
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
-                    <h1 class="display-1 text-white mb-md-4">Our Services</h1>
-                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Home</a>
-                    <a href="" class="btn btn-secondary py-md-3 px-md-5">Services</a>
+                    <h1 class="display-1 text-white mb-md-4">Layanan</h1>
+
                 </div>
             </div>
         </div>
     </div>
     <!-- Hero End -->
-
 
     <!-- Services Start -->
     <div class="container-fluid py-5">
@@ -117,7 +121,7 @@
                     <p class="mb-4">
 
 
-                        </p>
+                    </p>
                     <a href="" class="btn btn-primary py-md-3 px-md-5">Contact Us</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -160,7 +164,7 @@
     </div>
     <!-- Services End -->
 
-        <!-- Services Start -->
+    <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5">
@@ -172,7 +176,7 @@
                     <p class="mb-4">
 
 
-                        </p>
+                    </p>
                     <a href="" class="btn btn-primary py-md-3 px-md-5">Contact Us</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -215,24 +219,31 @@
     </div>
     <!-- Services End -->
 
-
     <!-- Testimonial Start -->
-    <div class="container-fluid bg-testimonial py-5 mt-5" style="margin-bottom: 135px;">
+    <div class="container-fluid bg-testimonial py-5 my-5">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="owl-carousel testimonial-carousel p-5">
                         <div class="testimonial-item text-center text-white">
-                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="img/testimonial-2.jpg" alt="">
-                            <p class="fs-5">Dolores sed duo clita justo dolor et stet lorem kasd dolore lorem ipsum. At lorem lorem magna ut et, nonumy labore diam erat. Erat dolor rebum sit ipsum.</p>
+                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="<?php echo base_url(); ?>assets_frontend/img/testimonial-1.jpg" alt="">
+                            <p class="fs-5">Alhamdulillah ya selama 2 tahun lebih menjadi bank sampah unit di Bank Sampah Pintar pelayanannya bagus.
+                                Penjemputan ke unit juga lancar. Kami juga mendapatkan banyak manfaat salah satunya bisa mengikuti banyak seminar dan pelatihan.
+                                Selain itu, kami juga merasakan dampak positif terhadap lingkungan.
+                                Sampah yang terbuang ke TPA semakin sedikit dan lebih meringankan beban petugas pengangkut sampah.</p>
                             <hr class="mx-auto w-25">
-                            <h4 class="text-white mb-0">Client Name</h4>
+                            <h4 class="text-white mb-0">Fatimah</h4>
+                            <h7 class="text-white mb-0">Bank Sampah Unit 01</h7>
                         </div>
                         <div class="testimonial-item text-center text-white">
-                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="img/testimonial-2.jpg" alt="">
-                            <p class="fs-5">Dolores sed duo clita justo dolor et stet lorem kasd dolore lorem ipsum. At lorem lorem magna ut et, nonumy labore diam erat. Erat dolor rebum sit ipsum.</p>
+                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="<?php echo base_url(); ?>assets_frontend/img/testimonial-2.jpg" alt="">
+                            <p class="fs-5">Alhamdulillah ya selama 2 tahun lebih menjadi bank sampah unit di Bank Sampah Pintar pelayanannya bagus.
+                                Penjemputan ke unit juga lancar. Kami juga mendapatkan banyak manfaat salah satunya bisa mengikuti banyak seminar dan pelatihan.
+                                Selain itu, kami juga merasakan dampak positif terhadap lingkungan.
+                                Sampah yang terbuang ke TPA semakin sedikit dan lebih meringankan beban petugas pengangkut sampah.</p>
                             <hr class="mx-auto w-25">
-                            <h4 class="text-white mb-0">Client Name</h4>
+                            <h4 class="text-white mb-0">Mas Slamet</h4>
+                            <h7 class="text-white mb-0">Bank Sampah Unit 02</h7>
                         </div>
                     </div>
                 </div>
@@ -240,7 +251,7 @@
         </div>
     </div>
     <!-- Testimonial End -->
-    
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-footer bg-primary text-white mt-5">
@@ -249,55 +260,63 @@
                 <div class="col-lg-8 col-md-6">
                     <div class="row gx-5">
                         <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                            <h4 class="text-white mb-4">Get In Touch</h4>
+                            <h4 class="text-white mb-4">Kantor Pusat Bank Sampah</h4>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-geo-alt text-white me-2"></i>
-                                <p class="text-white mb-0">123 Street, New York, USA</p>
+                                <p class="text-white mb-0">Jl Raya Jatinegara Kau Jakarta Timur<br>Jam Operasional pelayanan 09.00-15.00 WIB</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-envelope-open text-white me-2"></i>
-                                <p class="text-white mb-0">info@example.com</p>
+                                <p class="text-white mb-0">info@bspid.id</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">+012 345 67890</p>
+                                <p class="text-white mb-0">62857-8039-0850 CS 01</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-white me-2"></i>
+                                <p class="text-white mb-0">62812-8193-686 CS 02</p>
                             </div>
                             <div class="d-flex mt-4">
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6281380451211"><i class="fab fa-whatsapp"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://id-id.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/miga-informatika-71b407257/"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h4 class="text-white mb-4">Quick Links</h4>
+                            <h4 class="text-white mb-4">Bank Sampah Pintar</h4>
                             <div class="d-flex flex-column justify-content-start">
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Tentang Kami</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Layanan</a>
+                                <!-- <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a> -->
+                                <!-- <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a> -->
+                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Kontak
+                                    Us</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                        <!-- <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <h4 class="text-white mb-4">Popular Links</h4>
                             <div class="d-flex flex-column justify-content-start">
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our
+                                    Services</a>
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact
+                                    Us</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-lg-n5">
                     <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
-                        <h4 class="text-white">Newsletter</h4>
+                        <!-- <h4 class="text-white">Newsletter</h4>
                         <h6 class="text-white">Subscribe Our Newsletter</h6>
-                        <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
+                        <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p> -->
                         <form action="">
                             <div class="input-group">
                                 <input type="text" class="form-control border-white p-3" placeholder="Your Email">
@@ -311,7 +330,8 @@
     </div>
     <div class="container-fluid bg-dark text-white py-4">
         <div class="container text-center">
-            <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by <a class="text-secondary fw-bold" href="https://htmlcodex.com">HTML Codex</a></p>
+            <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">BSPID</a>. All Rights Reserved.
+                Designed by <a class="text-secondary fw-bold" href="https://miga.co.id">IT</a></p>
         </div>
     </div>
     <!-- Footer End -->
@@ -324,13 +344,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/easing/easing.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/waypoints/waypoints.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/counterup/counterup.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/js/main.js"></script>
 </body>
 
 </html>

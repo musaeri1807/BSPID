@@ -75,8 +75,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
                 <a href="<?php echo base_url(); ?>" class="nav-item nav-link active">Home</a>
-                <!-- <a href="about.html" class="nav-item nav-link">Tentang Kami</a>
-                <a href="service.html" class="nav-item nav-link">Layanan</a> -->
+                <a href="<?php echo base_url('Frontend/tentangkami'); ?>" class="nav-item nav-link">Tentang Kami</a>
+                <a href="<?php echo base_url('Frontend/layanan'); ?>" class="nav-item nav-link">Layanan</a>
                 <!-- <a href="product.html" class="nav-item nav-link">Produk</a> -->
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
@@ -287,7 +287,7 @@
 
 
     <!-- Services Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
@@ -340,12 +340,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Services End -->
 
 
     <!-- Features Start -->
-    <div class="container-fluid bg-primary feature py-5 pb-lg-0 my-5">
+    <!-- <div class="container-fluid bg-primary feature py-5 pb-lg-0 my-5">
         <div class="container py-5 pb-lg-0">
             <div class="mx-auto text-center mb-3 pb-2" style="max-width: 500px;">
                 <h6 class="text-uppercase text-secondary">Features</h6>
@@ -392,7 +392,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Features Start -->
 
 
@@ -587,7 +587,7 @@
 
 
     <!-- Blog Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container">
             <div class="mx-auto text-center mb-5" style="max-width: 500px;">
                 <h6 class="text-primary text-uppercase">Our Blog</h6>
@@ -623,7 +623,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Blog End -->
 
 
@@ -637,7 +637,7 @@
                             <h4 class="text-white mb-4">Kantor Pusat Bank Sampah</h4>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-geo-alt text-white me-2"></i>
-                                <p class="text-white mb-0">Jl Raya Jatinegara Kau Jakarta Timur</p>
+                                <p class="text-white mb-0">Jl Raya Jatinegara Kau Jakarta Timur<br>Jam Operasional pelayanan 09.00-15.00 WIB</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-envelope-open text-white me-2"></i>
@@ -647,18 +647,9 @@
                                 <i class="bi bi-telephone text-white me-2"></i>
                                 <p class="text-white mb-0">62857-8039-0850 CS 01</p>
                             </div>
-
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">62857-8039-0850 CS 02</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">62857-8039-0850 CS 03</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">62857-8039-0850 CS 04</p>
+                                <p class="text-white mb-0">62812-8193-686 CS 02</p>
                             </div>
                             <div class="d-flex mt-4">
                                 <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6281380451211"><i class="fab fa-whatsapp"></i></a>
@@ -674,13 +665,13 @@
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Tentang Kami</a>
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Layanan</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
+                                <!-- <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a> -->
+                                <!-- <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a> -->
                                 <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Kontak
                                     Us</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                        <!-- <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <h4 class="text-white mb-4">Popular Links</h4>
                             <div class="d-flex flex-column justify-content-start">
                                 <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
@@ -692,14 +683,14 @@
                                 <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact
                                     Us</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-lg-n5">
                     <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
-                        <h4 class="text-white">Newsletter</h4>
+                        <!-- <h4 class="text-white">Newsletter</h4>
                         <h6 class="text-white">Subscribe Our Newsletter</h6>
-                        <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
+                        <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p> -->
                         <form action="">
                             <div class="input-group">
                                 <input type="text" class="form-control border-white p-3" placeholder="Your Email">
