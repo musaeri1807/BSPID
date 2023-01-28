@@ -24,4 +24,5 @@ class Frontend extends CI_Controller
         // $this->load->view('frontend/v_homepage');
         // $this->load->view('frontend/v_footer');
     }
+    
 }
