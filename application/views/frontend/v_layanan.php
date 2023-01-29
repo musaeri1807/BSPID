@@ -41,7 +41,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="d-flex align-items-center justify-content-center">
-                    <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/LOGO.png" alt="">
+                    <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" alt="">
                     <a href="<?php echo base_url(); ?>" class="navbar-brand ms-lg-3">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Bank Sampah</span> Pintar
                         </h1>
@@ -122,48 +122,48 @@
 
 
                     </p>
-                    <a href="" class="btn btn-primary py-md-3 px-md-5">Contact Us</a>
+                    <a href="" class="btn btn-primary py-md-3 px-md-5">Hubungi Kami</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-carrot display-1 text-primary mb-3"></i>
+                        <i class="fa fa-user display-1 text-primary mb-3"></i>
                         <h4>Kartu Identitas</h4>
                         <p class="mb-0">Persyaratan yang wajib kamu bawa untuk menjadi nasabah membawa kartu Identitas</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-apple-alt display-1 text-primary mb-3"></i>
+                        <i class="fa fa-trash display-1 text-primary mb-3"></i>
                         <h4>Membawa sampah</h4>
                         <p class="mb-0">Untuk nasabah pertama hendak membawa sampah yang akan di tabung</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-dog display-1 text-primary mb-3"></i>
+                        <i class="fa fa-phone display-1 text-primary mb-3"></i>
                         <h4>Nomor telpon</h4>
                         <p class="mb-0">Mempunyai nomor telpon yang bisa di hubungi</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-tractor display-1 text-primary mb-3"></i>
-                        <h4>Modern Truck</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <i class="fa fa-calculator display-1 text-primary mb-3"></i>
+                        <h4>Tabungan</h4>
+                        <p class="mb-0">Melayanai Tabungan Emas</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-seedling display-1 text-primary mb-3"></i>
-                        <h4>Farming Plans</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <i class="fa fa-envelope display-1 text-primary mb-3"></i>
+                        <h4>Email</h4>
+                        <p class="mb-0">Mempunyai Email Yang Aktif</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Services End -->
-
+    <!-- Unit -->
     <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container">
@@ -177,41 +177,41 @@
 
 
                     </p>
-                    <a href="" class="btn btn-primary py-md-3 px-md-5">Contact Us</a>
+                    <a href="" class="btn btn-primary py-md-3 px-md-5">Hubungi Kami</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-carrot display-1 text-primary mb-3"></i>
-                        <h4>Kartu Identitas</h4>
-                        <p class="mb-0">Persyaratan yang wajib kamu bawa untuk menjadi nasabah membawa kartu Identitas</p>
+                        <i class="fa fa-user-circle display-1 text-primary mb-3"></i>
+                        <h4>Penguna Bank Sampah</h4>
+                        <p class="mb-0">Hubungi admin Bank Sampah Pintar</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-apple-alt display-1 text-primary mb-3"></i>
-                        <h4>Membawa sampah</h4>
-                        <p class="mb-0">Untuk nasabah pertama hendak membawa sampah yang akan di tabung</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-dog display-1 text-primary mb-3"></i>
-                        <h4>Nomor telpon</h4>
-                        <p class="mb-0">Mempunyai nomor telpon yang bisa di hubungi</p>
+                        <i class="fa fa-users display-1 text-primary mb-3"></i>
+                        <h4>Organisasi</h4>
+                        <p class="mb-0">Pembentukkan pengurus Bank Sampah Pintar</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-tractor display-1 text-primary mb-3"></i>
-                        <h4>Modern Truck</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <h4>Pelatihan</h4>
+                        <p class="mb-0">Diberika Pelatihan pengurus Bank Sampah Pintar</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-seedling display-1 text-primary mb-3"></i>
-                        <h4>Farming Plans</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <i class="fa fa-circle-notch display-1 text-primary mb-3"></i>
+                        <h4>Sosialiasi</h4>
+                        <p class="mb-0">Lakukan sosialisasi kepada warga</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item bg-light text-center p-5">
+                        <i class="fa fa-warehouse display-1 text-primary mb-3"></i>
+                        <h4>Lokasi</h4>
+                        <p class="mb-0">Pastikan lokasi dan jadwal penimbangan sudah sesuai</p>
                     </div>
                 </div>
             </div>

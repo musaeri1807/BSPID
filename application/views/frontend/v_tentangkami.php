@@ -41,7 +41,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="d-flex align-items-center justify-content-center">
-                    <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/LOGO.png" alt="">
+                    <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" alt="">
                     <a href="<?php echo base_url(); ?>" class="navbar-brand ms-lg-3">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Bank Sampah</span> Pintar
                         </h1>
@@ -116,7 +116,7 @@
             <div class="row gx-5">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="d-flex h-100 border border-5 border-primary border-bottom-0 pt-4">
-                        <img class="img-fluid mt-auto mx-auto" src="img/aboutw.png">
+                        <img class="img-fluid mt-auto mx-auto" src="<?php echo base_url(); ?>assets_frontend/img/aboutbspid.png">
                     </div>
                 </div>
                 <div class="col-lg-6 pb-5">

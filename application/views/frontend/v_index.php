@@ -41,7 +41,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="d-flex align-items-center justify-content-center">
-                    <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/LOGO.png" alt="">
+                    <img height="100" src="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" alt="">
                     <a href="<?php echo base_url(); ?>" class="navbar-brand ms-lg-3">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Bank Sampah</span> Pintar
                         </h1>
@@ -179,7 +179,7 @@
                         <!-- <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
                             lorem diam no duo sed dolore amet diam</p> -->
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
-                        <a href="" class="btn btn-secondary py-md-3 px-md-5">Daftar Personal</a>
+                        <a href="<?php echo base_url('Frontend/layanan') ?>" class="btn btn-secondary py-md-3 px-md-5">Daftar Personal</a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -188,7 +188,7 @@
                         <!-- <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
                             lorem diam no duo sed dolore amet diam</p> -->
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Daftar Unit </a>
+                        <a href="<?php echo base_url('Frontend/layanan') ?>" class="btn btn-primary py-md-3 px-md-5 me-3">Daftar Unit </a>
                     </div>
                 </div>
             </div>
@@ -211,18 +211,24 @@
                         <h6 class="text-primary text-uppercase">Tentang Kami</h6>
                         <h1 class="display-5">Bank Sampah Pintar</h1>
                     </div>
-                    <p class="mb-4">Ajang penghargaan untuk wanita2 tangguh pelopor pergerakan perubahan untuk menjadi lebih baik,
-                        tingkat Provinsi DKI Jakarta Prestasi yang diangkat Program NYIMAS (Pengelolaan sampah terintegrasi daring)</p>
+                    <p class="mb-4">Dalam menjalankan aktivitasnya, PT ANTAM Tbk UBPP Logam Mulia berkomitmen untuk tidak sekadar memprioritaskan profit,
+                        namun juga benefit yang dapat dinikmati oleh lingkungan dan masyarakat sekitar.
+                    </p>
                     <div class="row gx-5 gy-4">
                         <div class="col-sm-6">
                             <i class="fa fa-seedling display-1 text-secondary"></i>
-                            <h4>100% Organic</h4>
-                            <p class="mb-0">Lingkungan Bersih dan Aman</p>
+                            <h4>BACA BUKU KAMI</h4>
+                            <p class="mb-0">Sejarah baru dalam pengelolaan lingkungan berbasis digitalisasi dan pengembangan masyarakat.
+                                Baca selengkapnya BUKU DARI BIASA MENJADI PINTAR secara GRATIS <a href="https://bspid.id/">disini</a>
+                            </p>
                         </div>
                         <div class="col-sm-6">
                             <i class="fa fa-award display-1 text-secondary"></i>
-                            <h4>Award Winning</h4>
-                            <p class="mb-0">ibukota Awards tahun 2021</p>
+                            <h4>PENGHARGAAN</h4>
+                            <p class="mb-0">- Award (ISDA) 2022 PLATINUM <br>
+                                - Award (ISDA) 2021 GOLD<br>
+                                - CSR Awards 2020 <br>
+                            </p>
                         </div>
                     </div>
                 </div>
