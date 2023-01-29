@@ -19,6 +19,11 @@ class Frontend extends CI_Controller
         $data['totalunit']  = "3";
         $data['nasabah']     = "226";
         $data['sampah']     = "500000";
+        $data['produk']     =
+            [
+                'image' => 'kardus','tu',
+                'harga' => '1000','90'
+            ];
 
         $this->load->view('frontend/v_index', $data);
         // $this->load->view('frontend/v_homepage');

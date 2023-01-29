@@ -411,6 +411,10 @@
             </div>
             <div class="owl-carousel product-carousel px-5">
                 <?php
+                // foreach ($produk as $item){
+                //     echo $item->image;
+                // }
+
                 $x = 1;
                 while ($x <= 50) {
                 ?>
@@ -419,6 +423,17 @@
                             <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/botolplastik-01.png" alt="">
                             <h6 class="mb-3">Botol Bersih</h6>
                             <h5 class="text-primary mb-0">Rp 1.000 <?php echo $x; ?></h5>
+                            <div class="btn-action d-flex justify-content-center">
+                                <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
+                                <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pb-5">
+                        <div class="product-item position-relative bg-white d-flex flex-column text-center">
+                            <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/kardus-01.png" alt="">
+                            <h6 class="mb-3">Kardus Bekas</h6>
+                            <h5 class="text-primary mb-0">Rp 2.000 <?php echo $x; ?></h5>
                             <div class="btn-action d-flex justify-content-center">
                                 <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
                                 <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
