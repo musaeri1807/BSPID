@@ -219,7 +219,7 @@
                             <i class="fa fa-seedling display-1 text-secondary"></i>
                             <h4>BACA BUKU KAMI</h4>
                             <p class="mb-0">Sejarah baru dalam pengelolaan lingkungan berbasis digitalisasi dan pengembangan masyarakat.
-                                Baca selengkapnya BUKU DARI BIASA MENJADI PINTAR secara GRATIS <a href="https://bspid.id/">disini</a>
+                                Baca selengkapnya BUKU DARI BIASA MENJADI PINTAR secara GRATIS <a href="https://www.antam.com/id/csr-activities-detail/dari-biasa-menjadi-pintar">disini</a>
                             </p>
                         </div>
                         <div class="col-sm-6">
