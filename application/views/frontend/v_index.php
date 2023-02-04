@@ -242,7 +242,7 @@
     <div class="container-fluid bg-primary facts py-5 mb-5">
         <div class="container py-5">
             <div class="row gx-5 gy-4">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
                         <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fa fa-star fs-4 text-white"></i>
@@ -253,39 +253,39 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
                         <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fa fa-users fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white">Nasabah Terdaftar</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $nasabah; ?></h1>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $N->TOTAL_NASABAH; ?></h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
                         <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fa fa-check fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Sampah Terkelolah (Kg)</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $sampah; ?></h1>
+                            <h5 class="text-white">Terkelolah (Kg)</h5>
+                            <h5 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo round($S->TOTAL_SAMPAH,2) ?></h5>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
                         <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                             <i class="fa fa-mug-hot fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Titik Edukasi     </h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                            <h5 class="text-white">Total Emas (gr)</h5>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo round($D->TOTAL_EMAS,2);?></h1>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
