@@ -36,7 +36,7 @@
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                    <h2 class="mb-0">085780390850</h2>
+                    <h2 class="mb-0"><?php echo $telpon;?></h2>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -45,7 +45,7 @@
                     <a href="<?php echo base_url(); ?>" class="navbar-brand ms-lg-3">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Bank Sampah</span> Pintar
                         </h1>
-                        <h3>Digitalisasi Sampah </h3>
+                        <h3><?php echo $tagline;?></h3>
                     </a>
                 </div>
             </div>

@@ -315,12 +315,8 @@
                 <h1 class="display-5">Harga Sampah</h1>
             </div>
             <div class="owl-carousel product-carousel px-5">
+                <!-- looping -->
                 <?php
-                // foreach ($produk as $item){
-                //     echo $item->image;
-                // }
-
-
                 foreach($P AS $Produck){
                
                 ?>
@@ -335,66 +331,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="pb-5">
-                        <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                            <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/kardus-01.png" alt="">
-                            <h6 class="mb-3">Kardus Bekas</h6>
-                            <h5 class="text-primary mb-0">Rp 2.000 <?php echo $x; ?></h5>
-                            <div class="btn-action d-flex justify-content-center">
-                                <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                                <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                            </div>
-                        </div>
-                    </div> -->
                 <?php
-
-                } ?>
-
-                <!-- looping -->
-                <!-- <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/product-2.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">Rp 1.000</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/product-1.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">Rp 1.000</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/product-2.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">Rp 1.000</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/product-1.png" alt="">
-                        <h6 class="mb-3">Organic Vegetable</h6>
-                        <h5 class="text-primary mb-0">Rp 1.000</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
-                        </div>
-                    </div>
-                </div> -->
+                } 
+                ?>
                 <!-- looping -->
             </div>
         </div>
@@ -408,7 +347,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="owl-carousel testimonial-carousel p-5">
-                        <div class="testimonial-item text-center text-white">
+                        <!-- <div class="testimonial-item text-center text-white">
                             <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="<?php echo base_url(); ?>assets_frontend/img/testimonial-1.jpg" alt="">
                             <p class="fs-5">Alhamdulillah ya selama 2 tahun lebih menjadi bank sampah unit di Bank Sampah Pintar pelayanannya bagus.
                                 Penjemputan ke unit juga lancar. Kami juga mendapatkan banyak manfaat salah satunya bisa mengikuti banyak seminar dan pelatihan.
@@ -427,7 +366,20 @@
                             <hr class="mx-auto w-25">
                             <h4 class="text-white mb-0">Mas Slamet</h4>
                             <h7 class="text-white mb-0">Bank Sampah Unit 02</h7>
+                        </div> -->
+                        <?php
+                        foreach($O AS $Office){
+                        ?>
+                        <div class="testimonial-item text-center text-white">
+                            <img class="img-fluid mx-auto p-2 border border-5 border-secondary rounded-circle mb-4" src="<?php echo base_url(); ?>assets_frontend/img/<?php echo $Office['Foto'];?>" alt="">
+                            <p class="fs-5"><?php echo $Office['Comment'];?></p>
+                            <hr class="mx-auto w-25">
+                            <h4 class="text-white mb-0"><?php echo $Office['Petugas'];?></h4>
+                            <h7 class="text-white mb-0"><?php echo $Office['Unit'];?></h7>
                         </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
