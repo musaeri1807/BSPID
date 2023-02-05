@@ -1,52 +1,101 @@
-
-<!--/ Section Contact-Footer Star /-->
-<section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(<?php echo base_url(); ?>assets_frontend/img/overlay-bg.jpg)">
-  <div class="overlay-mf"></div>
-
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="copyright-box">
-            <div class="socials">
-              <ul>
-                <li><a href="<?php echo $pengaturan->link_facebook ?>"><span class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
-                <li><a href="<?php echo $pengaturan->link_instagram ?>"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                <li><a href="<?php echo $pengaturan->link_twitter ?>"><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                <li><a href="<?php echo $pengaturan->link_github ?>"><span class="ico-circle"><i class="ion-social-github"></i></span></a></li>
-              </ul>
+<!-- Footer Start -->
+    <div class="container-fluid bg-footer bg-primary text-white mt-5">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-8 col-md-6">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <h4 class="text-white mb-4">Kantor Pusat Bank Sampah</h4>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-white me-2"></i>
+                                <p class="text-white mb-0">Jl Raya Jatinegara Kau Jakarta Timur<br>Jam Operasional pelayanan 09.00-15.00 WIB</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-white me-2"></i>
+                                <p class="text-white mb-0">info@bspid.id</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-white me-2"></i>
+                                <p class="text-white mb-0">62857-8039-0850 CS 01</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-white me-2"></i>
+                                <p class="text-white mb-0">62812-8193-686 CS 02</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6281380451211"><i class="fab fa-whatsapp"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://id-id.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/miga-informatika-71b407257/"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <h4 class="text-white mb-4">Bank Sampah Pintar</h4>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Tentang Kami</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Layanan</a>
+                                <!-- <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a> -->
+                                <!-- <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a> -->
+                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Kontak
+                                    Us</a>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <h4 class="text-white mb-4">Popular Links</h4>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our
+                                    Services</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
+                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact
+                                    Us</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-lg-n5">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
+                        <!-- <h4 class="text-white">Newsletter</h4>
+                        <h6 class="text-white">Subscribe Our Newsletter</h6>
+                        <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p> -->
+                        <form action="">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-white p-3" placeholder="Your Email">
+                                <button class="btn btn-primary">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <p class="copyright">&copy; Copyright <strong><?php echo $pengaturan->nama ?></strong>. All Rights Reserved</p>
-            <div class="credits">
-              Tutorial by <a href="https://www.malasngoding.com/">Malas Ngoding</a>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </footer>
-</section>
-<!--/ Section Contact-footer End /-->
+    <div class="container-fluid bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">BSPID</a>. All Rights Reserved.
+                Designed by <a class="text-secondary fw-bold" href="https://miga.co.id">IT</a></p>
+        </div>
+    </div>
+    <!-- Footer End -->
 
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-<div id="preloader"></div>
 
-<!-- JavaScript Libraries -->
-<script src="<?php echo base_url(); ?>assets_frontend/lib/jquery/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/jquery/jquery-migrate.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/popper/popper.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/easing/easing.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/counterup/jquery.waypoints.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/counterup/jquery.counterup.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/lightbox/js/lightbox.min.js"></script>
-<script src="<?php echo base_url(); ?>assets_frontend/lib/typed/typed.min.js"></script>
-<!-- Contact Form JavaScript File -->
-<script src="<?php echo base_url(); ?>assets_frontend/contactform/contactform.js"></script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-<!-- Template Main Javascript File -->
-<script src="<?php echo base_url(); ?>assets_frontend/js/main.js"></script>
 
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/easing/easing.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/waypoints/waypoints.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/counterup/counterup.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets_frontend/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="<?php echo base_url(); ?>assets_frontend/js/main.js"></script>
 </body>
+
 </html>

@@ -26,9 +26,12 @@ class Frontend extends CI_Controller
                 'image' => 'kardus','tu',
                 'harga' => '1000','90'
             ];
-        $this->load->view('frontend/v_index', $data);
-        // $this->load->view('frontend/v_homepage');
-        // $this->load->view('frontend/v_footer');
+       
+        // $this->load->view('frontend/v_index', $data);
+
+        $this->load->view('frontend/v_header',$data);
+        $this->load->view('frontend/v_homepage',$data);
+        $this->load->view('frontend/v_footer',$data);
     }
 
     public function tentangkami()
@@ -38,9 +41,11 @@ class Frontend extends CI_Controller
         $data['nasabah']     = "226";
         $data['sampah']     = "500000";
 
+        
+        $this->load->view('frontend/v_header',$data);
         $this->load->view('frontend/v_tentangkami', $data);
-        // $this->load->view('frontend/v_homepage');
-        // $this->load->view('frontend/v_footer');
+        $this->load->view('frontend/v_footer',$data);
+
     }
     public function layanan()
     {
@@ -49,8 +54,9 @@ class Frontend extends CI_Controller
         $data['nasabah']     = "226";
         $data['sampah']     = "500000";
 
+        
+        $this->load->view('frontend/v_header',$data);
         $this->load->view('frontend/v_layanan', $data);
-        // $this->load->view('frontend/v_homepage');
-        // $this->load->view('frontend/v_footer');
+        $this->load->view('frontend/v_footer',$data);
     }
 }
