@@ -17,6 +17,7 @@ class Frontend extends CI_Controller
         $data['D']=$this->M_frontend->total_desposit();
         $data['N']=$this->M_frontend->total_nasabah();
         $data['S']=$this->M_frontend->total_Sampah();
+        $data['P']=$this->M_frontend->select_all_product();
 
         $data['titale']     = "BSP";
         $data['totalunit']  = "3";

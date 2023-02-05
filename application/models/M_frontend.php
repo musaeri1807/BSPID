@@ -22,4 +22,11 @@ class M_frontend extends CI_Model{
 
     } 
 
+      public function select_all_product(){
+        $sql = "SELECT * FROM tblproduct WHERE field_product_id !=7";
+		$data = $this->db->query($sql);
+        return $data->result();
+
+    } 
+
  }

@@ -36,7 +36,7 @@
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                    <h2 class="mb-0"></h2>
+                    <h2 class="mb-0">085780390850</h2>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -248,7 +248,7 @@
                             <i class="fa fa-star fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Bank Sampah Unit</h5>
+                            <h5 class="text-white">Unit Bank Sampah</h5>
                             <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $totalunit; ?></h1>
                         </div>
                     </div>
@@ -259,7 +259,7 @@
                             <i class="fa fa-users fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white">Nasabah Terdaftar</h5>
+                            <h5 class="text-white">Nasabah</h5>
                             <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $N->TOTAL_NASABAH; ?></h1>
                         </div>
                     </div>
@@ -415,21 +415,22 @@
                 //     echo $item->image;
                 // }
 
-                $x = 1;
-                while ($x <= 50) {
+
+                foreach($P AS $Produck){
+               
                 ?>
                     <div class="pb-5">
                         <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                            <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/botolplastik-01.png" alt="">
-                            <h6 class="mb-3">Botol Bersih</h6>
-                            <h5 class="text-primary mb-0">Rp 1.000 <?php echo $x; ?></h5>
+                            <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/<?php  echo $Produck->field_image; ?>" alt="">
+                            <h6 class="mb-3"><?php  echo $Produck->field_product_name; ?></h6> 
+                            <h5 class="text-primary mb-0"><?php  echo "Rp. ".$Produck->field_price; ?></h5>
                             <div class="btn-action d-flex justify-content-center">
                                 <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
                                 <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="pb-5">
+                    <!-- <div class="pb-5">
                         <div class="product-item position-relative bg-white d-flex flex-column text-center">
                             <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/kardus-01.png" alt="">
                             <h6 class="mb-3">Kardus Bekas</h6>
@@ -439,9 +440,9 @@
                                 <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 <?php
-                    $x++;
+
                 } ?>
 
                 <!-- looping -->

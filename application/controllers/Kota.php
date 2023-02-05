@@ -27,11 +27,9 @@ class Kota extends AUTH_Controller {
 
 	public function prosesTambah() {
 		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
-
 		$data 	= $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
 			$result = $this->M_kota->insert($data);
-
 			if ($result > 0) {
 				$out['status'] = '';
 				$out['msg'] = show_succ_msg('Data Kota Berhasil ditambahkan', '20px');
