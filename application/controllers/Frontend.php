@@ -18,7 +18,7 @@ class Frontend extends CI_Controller
         $data['N']=$this->M_frontend->total_nasabah();
         $data['S']=$this->M_frontend->total_Sampah();
         $data['P']=$this->M_frontend->select_all_product();
-        $data['titale']     = "BSP";
+        $data['titale']     = "BSP | Bank Sampah Pintar";
         $data['totalunit']  = "2";
         $data['telpon']='085780390850';
         $data['tagline']='Digitalisasi Sampah';
@@ -40,7 +40,7 @@ class Frontend extends CI_Controller
 
     public function tentangkami()
     {
-        $data['titale']     = "BSP";
+        $data['titale']     = "BSP | Bank Sampah Pintar";
         $data['totalunit']  = "3";
         $data['telpon']='085780390850';
         $data['tagline']='Digitalisasi Sampah';        
@@ -51,7 +51,7 @@ class Frontend extends CI_Controller
     }
     public function layanan()
     {
-        $data['titale']     = "BSP";
+        $data['titale']     = "BSP | Bank Sampah Pintar";
         $data['totalunit']  = "3";
         $data['telpon']='085780390850';
         $data['tagline']='Digitalisasi Sampah';        

@@ -3,7 +3,7 @@
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
-                    <h1 class="display-1 text-white mb-md-4">Tentang kami</h1>
+                    <h1 class="display-1 text-white mb-md-4">Tentang Kami</h1>
 
                 </div>
             </div>

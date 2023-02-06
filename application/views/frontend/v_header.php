@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title><?php echo $titale; ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Bank Sampah Pintar" name="keywords">
-    <meta content="Digitalikasi" name="description">
+    <meta content="BSP,Bank Sampah Pintar, BSP, pok lisa" name="keywords">
+    <meta content="Digitalikasi Bank Sampah,bank sampah pintar,emas,gold,aplikasi,bersih" name="description">
 
     <!-- Favicon -->
     <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" rel="icon">
