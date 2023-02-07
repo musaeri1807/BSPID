@@ -18,7 +18,7 @@ class Frontend extends CI_Controller
         $data['N']=$this->M_frontend->total_nasabah();
         $data['S']=$this->M_frontend->total_Sampah();
         $data['P']=$this->M_frontend->select_all_product();
-        $data['titale']     = "BSP | Bank Sampah Pintar";
+        $data['titale']     = "Situs Bank Sampah Online | BSPID";
         $data['totalunit']  = "2";
         $data['telpon']='085780390850';
         $data['tagline']='Digitalisasi Sampah';
