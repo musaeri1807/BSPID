@@ -23,6 +23,13 @@ class M_saldo extends CI_Model
 
 		return $data->row();
 	}
+	public function select_gold(){
+			$sql = "SELECT EMAS.field_date_gold AS TANGGAL, EMAS.field_buyback AS BUYBACK,EMAS.field_sell AS JUAL 
+					FROM tblgoldprice EMAS ORDER BY field_gold_id DESC LIMIT 1";
+			$data = $this->db->query($sql); 
+
+		return $data->row();
+	}
 }
 
 /* End of file M_saldo.php */

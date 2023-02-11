@@ -48,7 +48,7 @@
               <th scope="row">5</th>
               <td>Saldo Rupiah</td>
               <td>:</td>
-              <td><?php echo "Rp ".number_format($dataInfosaldo->field_total_saldo*$hargaemas, 0, ",", "."); ?></td>
+              <td><?php echo "Rp ".number_format($dataInfosaldo->field_total_saldo*$hargaemas->BUYBACK, 0, ",", "."); ?></td>
             </tr>
           </tbody>
         </table>

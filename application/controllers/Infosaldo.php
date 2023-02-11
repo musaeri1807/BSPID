@@ -11,11 +11,10 @@ class Infosaldo extends AUTH_Controller {
 		$data['userdata'] 	= $this->userdata;
 		$id = $this->userdata->field_member_id;
 		$data['dataInfosaldo'] 	= $this->M_saldo->select_all($id);
-		$data['hargaemas']=800000;
+		$data['hargaemas'] =$this->M_saldo->select_gold();
 		$data['page'] 		= "infosaldo";
 		$data['judul'] 		= "Infosaldo";
 		$data['deskripsi'] 	= "Manage Data Saldo";
-
 		$this->template->views('infosaldo/home', $data);
 	}
 
