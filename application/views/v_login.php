@@ -2,13 +2,18 @@
 <html>
 
 <head>
+   <meta charset="utf-8">
+     <title><?php echo $judul;?></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="BSP,Bank Sampah Pintar, BSP, pok lisa" name="keywords">
+    <meta content="Digitalikasi Bank Sampah,bank sampah pintar,emas,gold,aplikasi,bersih" name="description">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $judul; ?></title>
+ 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Favicon -->
-  <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bsp.png" rel="icon">
+     <!-- Favicon -->
+  <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" rel="icon">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -37,7 +42,10 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">
-        Log in to start your session
+        <!-- Log in to start your session -->
+          <?php
+          echo show_err_msg($this->session->flashdata('error_msg'));
+          ?>
       </p>
 
       <form action="<?php echo base_url('Auth/login'); ?>" method="post">
@@ -85,9 +93,7 @@
 
     </div>
     <!-- /.login-box-body -->
-    <?php
-    echo show_err_msg($this->session->flashdata('error_msg'));
-    ?>
+  
   </div>
 
 

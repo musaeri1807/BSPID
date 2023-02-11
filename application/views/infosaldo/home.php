@@ -33,16 +33,22 @@
               <td><?php echo $dataInfosaldo->REKENING; ?></td>
             </tr>
             <tr>
-              <th scope="row">2</th>
+              <th scope="row">3</th>
               <td>No Id Member</td>
               <td>:</td>
               <td><?php echo $dataInfosaldo->field_member_id; ?></td>
             </tr>
             <tr>
               <th scope="row">4</th>
-              <td>Saldo</td>
+              <td>Saldo Emas</td>
               <td>:</td>
-              <td><?php echo $dataInfosaldo->field_total_saldo; ?></td>
+              <td><?php echo $dataInfosaldo->field_total_saldo.' gr' ; ?></td>
+            </tr>
+             <tr>
+              <th scope="row">5</th>
+              <td>Saldo Rupiah</td>
+              <td>:</td>
+              <td><?php echo "Rp ".number_format($dataInfosaldo->field_total_saldo*$hargaemas, 0, ",", "."); ?></td>
             </tr>
           </tbody>
         </table>

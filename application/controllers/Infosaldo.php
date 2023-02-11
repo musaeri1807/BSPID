@@ -11,8 +11,7 @@ class Infosaldo extends AUTH_Controller {
 		$data['userdata'] 	= $this->userdata;
 		$id = $this->userdata->field_member_id;
 		$data['dataInfosaldo'] 	= $this->M_saldo->select_all($id);
-// var_dump($data['dataInfosaldo'] 	= $this->M_saldo->select_all($id));
-// die();
+		$data['hargaemas']=800000;
 		$data['page'] 		= "infosaldo";
 		$data['judul'] 		= "Infosaldo";
 		$data['deskripsi'] 	= "Manage Data Saldo";
@@ -22,7 +21,7 @@ class Infosaldo extends AUTH_Controller {
 
 	public function tampil() {
 		$id = $this->userdata->field_member_id;
-		$data['dataInfosaldo'] = $this->M_saldo->select_all($id);
+		$data['dataInfosaldo'] = $this->M_saldo->select_all($id);	
 		$this->load->view('infosaldo/list_data', $data);
 	}
 	

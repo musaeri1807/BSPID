@@ -20,8 +20,8 @@ class Auth extends CI_Controller
 	{
 		$session = $this->session->userdata('status');
 		if ($session == '') {
-			$data['judul'] = "Login";
-			$this->load->view('login', $data);
+			$data['judul'] = "Situ Login BSPID";
+			$this->load->view('v_login', $data);
 		} else {
 			redirect('Home');
 		}
@@ -36,7 +36,7 @@ class Auth extends CI_Controller
 			$pass = trim($_POST['txt_password']);
 			$data = $this->M_auth->login($username);
 			if (!password_verify($pass, $data->field_password) == true) {
-				$this->session->set_flashdata('error_msg', 'Username / Password Anda Salah.');
+				$this->session->set_flashdata('error_msg', 'Username atau Password Anda Salah.');
 				redirect('Auth');
 			} else {
 				$session = [
@@ -57,14 +57,14 @@ class Auth extends CI_Controller
 	{
 		// $data['userdata'] 	= "1";
 		// $data['page'] 		= "register";
-		$data['judul'] 		= "Registrasi";
+		$data['judul'] 		= "Registrasi BSPID";
 		$this->load->helper('form');
 		$this->load->view('v_registrasi', $data);
 	}
 
 	public function lupapassword()
 	{
-		$data['judul'] 		= "Lupa Password";
+		$data['judul'] 		= "Lupa Password BSPID";
 		$this->load->helper('form');
 		$this->load->view('v_lupaspassword', $data);
 	}
