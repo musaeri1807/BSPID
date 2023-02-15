@@ -79,7 +79,7 @@
 
 
                     </p>
-                    <a href="" class="btn btn-primary py-md-3 px-md-5">Hubungi Kami</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFOdOfba2ANyCajghmWWSGCGjbOPrSSN19jpoQy6oEeNaP4A/viewform" target="#" class="btn btn-primary py-md-3 px-md-5">Isi Form</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
