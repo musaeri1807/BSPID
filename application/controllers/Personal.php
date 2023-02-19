@@ -11,10 +11,8 @@ class Personal extends AUTH_Controller
 	public function index()
 	{
 		$data['userdata'] 		= $this->userdata;
-		$id = $this->userdata->field_member_id;
+		$id = $this->userdata->field_user_id;
 
-		// var_dump($id);
-		// die();
 		$data['page'] 			= "personal";
 		$data['judul'] 			= "Personal";
 		$data['deskripsi'] 		= "Setting Personal";
@@ -23,13 +21,20 @@ class Personal extends AUTH_Controller
 		$data['provinsi'] = $get_prov->result();
 		$data['path'] = base_url('assets');
 
-		$sql = "SELECT * FROM tblnasabah N JOIN tbluserlogin U WHERE U.field_member_id =$id";
+		$sql = "SELECT N.*,U.*,PRO.field_nama_provinsi AS PROVINSI, KAB.field_nama_kabupaten AS KABUPATEN,KEC.field_nama_kecamatan AS KECAMATAN,DES.field_nama_desa AS DESA
+				FROM tblnasabah N 
+				LEFT JOIN tbluserlogin U ON N.id_UserLogin=U.field_user_id
+				LEFT JOIN tblwilayahprovinsi PRO ON N.Provinsi_N=PRO.field_provinsi_id
+				LEFT JOIN tblwilayahkabupaten KAB ON N.Kabupaten_N=KAB.field_kabupaten_id
+				LEFT JOIN tblwilayahkecamatan KEC ON N.Kecamatan_N=KEC.field_kecamatan_id
+				LEFT JOIN tblwilayahdesa DES ON N.Kelurahan_N=DES.field_desa_id
+				WHERE U.field_user_id =$id ORDER BY N.id_Nasabah LIMIT 1";
 		$get_cus = $this->db->query($sql);
 
 		$data['nasabah'] = $get_cus->row();
 		// var_dump($data);
 		// die();
-		$this->template->views('personal', $data);
+		$this->template->views('v_personal', $data);
 	}
 
 	// function index()
@@ -134,13 +139,38 @@ class Personal extends AUTH_Controller
 			redirect('Changepassword');
 		}
 	}
-	public function personal($id)
+	public function personal()
 	{
-		$this->form_validation->set_rules('passLama', 'Password Lama', 'trim|required');
-		$this->form_validation->set_rules('passBaru', 'Password Baru', 'trim|required');
-		$this->form_validation->set_rules('passKonf', 'Password Konfirmasi', 'trim|required');
+		 $this->form_validation->set_rules('NIK', 'Nomor Induk Kependudukan', 'required|trim|min_length[16]', [            
+            'min_length' => 'Nomor terlalu pendek!'
+        ]);
+		$this->form_validation->set_rules('NPWP', 'Nomor Pokok Wajib Pajak', 'required|trim|min_length[16]', [            
+            'min_length' => 'Nomor terlalu pendek!'
+        ]);
+		// $this->form_validation->set_rules('NIK', 'Nomor Induk Kependudukan', 'trim|required');
+		// $this->form_validation->set_rules('', '', 'trim|required');
 
-		echo "personal";
+		if ($this->form_validation->run() == TRUE) {
+		$id = $this->userdata->field_user_id;
+		$Profile=[
+			'Nik_Nasabah'=>$this->input->post('NIK'),
+			'Tgl_Nasabah'=>date('Y-m-d'),
+			'Jenis_Kelamin_N'=>$this->input->post('gender'),
+			'Alamat_Nasabah'=>$this->input->post('alamat'),
+			'Provinsi_N'=>$this->input->post('provinsi'),
+			'Kabupaten_N'=>$this->input->post('kabupaten'),
+			'Kecamatan_N'=>$this->input->post('kecamatan'),
+			'Kelurahan_N'=>$this->input->post('desa')
+		];
+
+		$this->db->where('id_UserLogin', $id);
+		$this->db->update('tblnasabah', $Profile);
+		$this->session->set_flashdata('msg', show_succ_msg('Profile Berhasil diubah'));
+		redirect('Profile');
+		} else {
+			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
+			redirect('Profile');
+		}
 	}
 
 

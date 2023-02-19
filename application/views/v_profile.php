@@ -102,23 +102,26 @@
             <div class="form-group">
               <label for="passLama" class="col-sm-2 control-label">NIK</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="ktp" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 9999999999'" data-mask readonly>
+                <input type="text" class="form-control" name="NIK" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 9999999999'" data-mask >
+                <?= form_error('NIK', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">NPWP</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 999999999'" data-mask readonly>
+                <input type="text" class="form-control" name="NPWP" value="<?php echo $nasabah->Nik_Nasabah; ?>" data-inputmask="'mask': '999999 9999999999'" data-mask >
               </div>
             </div>
             <div class="form-group">
               <label for="passBaru" class="col-sm-2 control-label">Gender</label > 
               <div class="col-sm-10">
-                <select class="form-control" name="" id="" readonly>
-                  <?php if ($nasabah->field_jenkel == 'L') {
-                    echo '<option value="L">Laki-Laki</option> readonly';
-                  } else {
-                    echo '<option value="P">Perempuan</option> readonly';
+                <select class="form-control" name="gender" id="gender">
+                    <?php if ($nasabah->Jenis_Kelamin_N == 'L') {
+                    echo '<option value="L">Laki-Laki</option>';
+                  } elseif($nasabah->Jenis_Kelamin_N == 'P') {
+                    echo '<option value="P">Perempuan</option>';
+                  }else{
+                    echo '<option value="">Belum di Update</option>';
                   }
 
                   ?>
@@ -127,30 +130,18 @@
                 </select>
               </div>
             </div>
-            <div class="form-group">
-              <label for="passBaru" class="col-sm-2 control-label">Tempat Lahir</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" readonly>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="Datettl" class="col-sm-2 control-label">Date of Birth</label>
-              <div class="col-sm-10">
-                <input type="date" class="form-control" value="<?php echo $nasabah->Nik_Nasabah; ?>" id="datepicker" readonly>
-              </div>
-            </div>
+
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Alamat</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="txt_alamat" value="<?php echo $nasabah->Nik_Nasabah; ?>" placeholder="Alamat" readonly>
-                <!-- <textarea class="form-control" name="txt_alamat" rows="3" placeholder="<?php echo $customer->field_alamat; ?> "></textarea> -->
+                <input type="text" class="form-control" name="alamat" value="<?php echo $nasabah->Alamat_Nasabah; ?>" placeholder="Alamat">               
               </div>
             </div>
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Provinsi</label>
               <div class="col-sm-10">
-                <select name="prov" class="form-control" id="provinsi">
-                  <option value="<?php echo $nasabah->Provinsi_N; ?>"><?php echo $nasabah->Provinsi_N; ?></option>
+                <select name="provinsi" class="form-control" id="provinsi">
+                  <option value="<?php echo $nasabah->Provinsi_N; ?>"><?php echo $nasabah->PROVINSI; ?></option>
                   <?php
 
                   foreach ($provinsi as $prov) {
@@ -164,31 +155,31 @@
               <label for="passKonf" class="col-sm-2 control-label">Kabupaten/Kota</label>
               <div class="col-sm-10">
 
-                <select name="kab" class="form-control" id="kabupaten">
-                  <option value='<?php echo $nasabah->Kabupaten_N; ?>'><?php echo $nasabah->Kabupaten_N; ?></option>
+                <select name="kabupaten" class="form-control" id="kabupaten">
+                  <option value='<?php echo $nasabah->Kabupaten_N; ?>'><?php echo $nasabah->KABUPATEN; ?></option>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Kecamatan</label>
               <div class="col-sm-10">
-                <select name="kec" class="form-control" id="kecamatan">
-                  <option value="<?php echo $nasabah->Kecamatan_N; ?>"><?php echo $nasabah->Kecamatan_N; ?></option>
+                <select name="kecamatan" class="form-control" id="kecamatan">
+                  <option value="<?php echo $nasabah->Kecamatan_N; ?>"><?php echo $nasabah->KECAMATAN; ?></option>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label for="passKonf" class="col-sm-2 control-label">Kelurahan / Desa</label>
               <div class="col-sm-10">
-                <select name="des" class="form-control" id="desa">
-                  <option value="<?php echo $nasabah->Kelurahan_N; ?>"><?php echo $nasabah->Kelurahan_N; ?></option>
+                <select name="desa" class="form-control" id="desa">
+                  <option value="<?php echo $nasabah->Kelurahan_N; ?>"><?php echo $nasabah->DESA; ?></option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
+                <button type="submit" class="btn btn-danger">Simpan</button>
 
               </div>
             </div>

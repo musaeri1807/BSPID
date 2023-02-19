@@ -11,7 +11,7 @@ class Profile extends AUTH_Controller
 	public function index()
 	{
 		$data['userdata'] 		= $this->userdata;
-		$id = $this->userdata->field_member_id;
+		$id = $this->userdata->field_user_id;
 		$data['page'] 			= "profile";
 		$data['judul'] 			= "Profile";
 		$data['deskripsi'] 		= "Setting Profile";
@@ -19,7 +19,14 @@ class Profile extends AUTH_Controller
 		$get_prov = $this->db->select('*')->from('tblwilayahprovinsi')->get();
 		$data['provinsi'] = $get_prov->result();
 		$data['path'] = base_url('assets');
-		$sql = "SELECT * FROM tblnasabah N JOIN tbluserlogin U WHERE U.field_member_id =$id";
+		$sql = "SELECT N.*,U.*,PRO.field_nama_provinsi AS PROVINSI, KAB.field_nama_kabupaten AS KABUPATEN,KEC.field_nama_kecamatan AS KECAMATAN,DES.field_nama_desa AS DESA
+				FROM tblnasabah N 
+				LEFT JOIN tbluserlogin U ON N.id_UserLogin=U.field_user_id
+				LEFT JOIN tblwilayahprovinsi PRO ON N.Provinsi_N=PRO.field_provinsi_id
+				LEFT JOIN tblwilayahkabupaten KAB ON N.Kabupaten_N=KAB.field_kabupaten_id
+				LEFT JOIN tblwilayahkecamatan KEC ON N.Kecamatan_N=KEC.field_kecamatan_id
+				LEFT JOIN tblwilayahdesa DES ON N.Kelurahan_N=DES.field_desa_id
+				WHERE U.field_user_id =$id ORDER BY N.id_Nasabah LIMIT 1";
 		$get_nas = $this->db->query($sql);
 		$data['nasabah'] = $get_nas->row();
 		$this->template->views('v_profile', $data);
@@ -50,22 +57,11 @@ class Profile extends AUTH_Controller
 				$error = array('error' => $this->upload->display_errors());
 			} else {
 				$data_foto = $this->upload->data();
-				// $data_foto = $this->upload->data();
-				// var_dump($data_foto);	
-				// die();
+
 				$data['field_photo'] = $data_foto['file_name'];
 			}
 
 			$result = $this->M_users->update($data, $id);
-
-			// if ($data('field_photo') != 'user.png') {
-			// 	$old_image = FCPATH . 'assets/img/avatar/' . $data('field_photo');
-			// 	if (!unlink($old_image)) {
-			// 		set_pesan('gagal hapus foto lama.');
-			// 		redirect('Profile');
-			// 	}
-			// }
-
 
 			if ($result > 0) {
 				$this->updateProfil();
@@ -86,9 +82,8 @@ class Profile extends AUTH_Controller
 		$this->form_validation->set_rules('passLama', 'Password Lama', 'trim|required');
 		$this->form_validation->set_rules('passBaru', 'Password Baru', 'trim|required');
 		$this->form_validation->set_rules('passKonf', 'Password Konfirmasi', 'trim|required');
-
-
 		$id = $this->userdata->field_user_id;
+
 		if ($this->form_validation->run() == TRUE) {
 
 			$pass = trim($_POST['passLama']);
@@ -128,17 +123,37 @@ class Profile extends AUTH_Controller
 			redirect('Changepassword');
 		}
 	}
-	public function personal($id)
+	public function personal()
 	{
-		$this->form_validation->set_rules('ktp', 'ktp', 'trim|required');
-		// $this->form_validation->set_rules('passBaru', 'Password Baru', 'trim|required');
-		// $this->form_validation->set_rules('passKonf', 'Password Konfirmasi', 'trim|required');
+		 $this->form_validation->set_rules('NIK', 'Nomor Induk Kependudukan', 'required|trim|min_length[16]', [            
+            'min_length' => 'Nomor terlalu pendek!'
+        ]);
+		$this->form_validation->set_rules('NPWP', 'Nomor Pokok Wajib Pajak', 'required|trim|min_length[16]', [            
+            'min_length' => 'Nomor terlalu pendek!'
+        ]);
+		// $this->form_validation->set_rules('NIK', 'Nomor Induk Kependudukan', 'trim|required');
+		// $this->form_validation->set_rules('', '', 'trim|required');
+
 		if ($this->form_validation->run() == TRUE) {
-			echo "1";
+		$id = $this->userdata->field_user_id;
+		$Profile=[
+			'Nik_Nasabah'=>$this->input->post('NIK'),
+			'Tgl_Nasabah'=>date('Y-m-d'),
+			'Jenis_Kelamin_N'=>$this->input->post('gender'),
+			'Alamat_Nasabah'=>$this->input->post('alamat'),
+			'Provinsi_N'=>$this->input->post('provinsi'),
+			'Kabupaten_N'=>$this->input->post('kabupaten'),
+			'Kecamatan_N'=>$this->input->post('kecamatan'),
+			'Kelurahan_N'=>$this->input->post('desa')
+		];
+
+		$this->db->where('id_UserLogin', $id);
+		$this->db->update('tblnasabah', $Profile);
+		$this->session->set_flashdata('msg', show_succ_msg('Profile Berhasil diubah'));
+		redirect('Profile');
 		} else {
-			// $this->session->set_flashdata('msg', show_err_msg(validation_errors()));
-			// redirect('Changepassword');
-			echo "2";
+			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
+			redirect('Profile');
 		}
 	}
 
