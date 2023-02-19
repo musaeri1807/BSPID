@@ -44,7 +44,7 @@
       <form action="<?php echo base_url('/Auth/send_mail'); ?>" method="post">
         <div class="form-group has-feedback">
           <input type="email" class="form-control" placeholder="Email" name="email">
-          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
         <select hidden name="pilih" id="pilih">
@@ -52,7 +52,7 @@
         </select>
 
         <div class="form-group has-feedback">
-          Anda tidak punya akun? Klik <a href="">|<b>Registrasi</b> |</a> <br>
+          Anda tidak punya akun? Klik <a href="<?php echo base_url('Auth/signup'); ?>"">|<b>Registrasi</b> |</a> <br>
           Silakan klik <a href="<?php echo base_url('Auth/login'); ?>">|<b>Login</b>|</a>
         </div>
         <div class="row">

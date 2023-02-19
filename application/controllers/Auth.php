@@ -53,13 +53,10 @@ class Auth extends CI_Controller
 		}
 	}
 
-	public function registrasi()
+	public function signup()
 	{
-		// $data['userdata'] 	= "1";
-		// $data['page'] 		= "register";
-		$data['judul'] 		= "Registrasi BSPID";
-		$this->load->helper('form');
-		$this->load->view('v_registrasi', $data);
+		$data['judul'] 	= "Signup BSPID";
+		$this->load->view('v_register', $data);
 	}
 
 	public function lupapassword()
@@ -86,19 +83,13 @@ class Auth extends CI_Controller
 	public function send_mail()
 	{
 		$email = $this->input->post('email');
-		// $email='musaeri.kjt@gmail.com';
 		$sql = "SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1";
 		$get_nas = $this->db->query($sql);
-		// $dmaile = $get_nas->row();
-
 		$query = $this->db->query("SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1");
 		$row = $query->row();
 
 
 		if ($get_nas->num_rows() > 0) {
-			// echo "samadengan 1";
-			// die();
-
 			$tokenn = md5('sadfkjkjiqwfkjifqwfwfu');
 			$nama = $row->field_nama;
 			$password = $row->Password;
