@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $titale;?></title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="" name="viewport">
+ <meta charset="utf-8">
+    <title><?php echo $titale; ?></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="BSP,Bank Sampah Pintar, BSP, pok lisa" name="keywords">
+    <meta content="Digitalikasi Bank Sampah,bank sampah pintar,emas,gold,aplikasi,bersih" name="description">
+
+    <!-- Favicon -->
+    <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" rel="icon">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= base_url();?>/assets_/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -36,7 +39,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?= base_url();?>/assets_/index2.html" class="logo">
+    <a href="<?= base_url();?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"></span>
       <!-- logo for regular state and mobile devices -->
@@ -227,7 +230,7 @@
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
-      <button class="btn btn-dropbox">Simpan</button>
+      <button class="btn btn-dropbox">Simpan</button>      <a href="<?= base_url();?>" class="btn btn-Warning">Keluar </a>
     </form>
     </section>
     <!-- /.content -->
@@ -238,7 +241,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.13
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    <strong>Copyright &copy; <?php echo date('Y');?><a href=""></a>.</strong> All rights
     reserved.
   </footer>
   <!-- Add the sidebar's background. This div must be placed
