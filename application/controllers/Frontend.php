@@ -67,7 +67,7 @@ class Frontend extends CI_Controller
         $this->form_validation->set_rules('jumlah_pengurus', 'Jumlah Pengurus', 'required|trim');
         $this->form_validation->set_rules('nama_ketua', 'Nama Ketua', 'required|trim');
         $this->form_validation->set_rules('nohp', 'No HP', 'required|trim');
-
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('provinsi', 'Provinsi', 'required|trim');
 		$this->form_validation->set_rules('kabupaten', 'Kabupaten', 'required|trim');
         $this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required|trim');
@@ -99,7 +99,7 @@ class Frontend extends CI_Controller
             $char=$th.$bln;
             $Iduser = $char . sprintf("%04s", $no);
 
-            $dataUser = [
+            $user = [
                 'field_employees_id'=>  $Iduser,
                 'field_name_officer'=> $this->input->post('name'),
                 'field_username'=> $this->input->post('username'),
@@ -118,15 +118,24 @@ class Frontend extends CI_Controller
             $N=$QUERY->row();
             $Number =$N->NA;
             $Angka = $Number+1;       
-            $datacabang=[
+            $cabang=[
                 'field_branch_id'=> $this->input->post('desa'),
                 'field_account_numbers'=> $Angka,
                 'field_branch_name'=> $this->input->post('kecamatan'),
                 'head_office_id'=> '5',
                 'head_office'=> 'ANTAM LM'
+            ];          
+            $this->db->insert('tblemployeeslogin',$user);
+            $this->db->insert('tblbranch',$cabang);
+            $alamat=[
+                'id_branch'=> $this->db->insert_id(),
+                'id_number'=> $Angka,
+                'alamat'=> $this->input->post('alamat'),
+                'organisasi'=> $this->input->post('bank_sampah'),
+                'jumlah_pengurus'=> $this->input->post('jumlah_pengurus'),
+                'pimpinan'=> $this->input->post('nama_ketua')
             ];
-            $this->db->insert('tblemployeeslogin',$dataUser);
-            $this->db->insert('tblbranch',$datacabang);
+            $this->db->insert('tblbranchdetail',$alamat);
             $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Selamat! Akun anda telah dibuat. Silakan Hubungi kami dengan Klik link <a href="https://wa.link/55k047">|<b>Chat Whatsapp</b>|</a> Untuk konfirmasi aktifkan akun Anda</div>');
             redirect('Frontend/unit');
         }
