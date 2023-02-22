@@ -103,6 +103,7 @@ class Frontend extends CI_Controller
                 'field_employees_id'=>  $Iduser,
                 'field_name_officer'=> $this->input->post('name'),
                 'field_username'=> $this->input->post('username'),
+                'field_role'=> 'AMR',
                 'field_date_reg'=> date('Y-m-d'),
                 'field_branch'=> $this->input->post('desa'),
                 'field_email'=> htmlspecialchars($email),
