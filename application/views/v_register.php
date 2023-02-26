@@ -39,7 +39,9 @@
       <a href="<?php echo base_url('Auth/login'); ?>"><b>Sign Up</b></a>
     </div>
 
-    <!-- /.login-logo -->
+    
+ 
+  <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">
         <!-- Log in to start your session -->
@@ -61,6 +63,18 @@
           <input type="password" class="form-control" placeholder="Password" name="password">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
+          <div class="form-group has-feedback">
+          <!-- <input type="cabang" class="form-control" placeholder="Cabang" name="cabang"> -->
+          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+          <select name="cabang" id="cabang" class="form-control">
+            <option value="">--Pilih Cabang--</option>
+
+            <?php foreach ($C AS $cabang){
+              ?>
+              <option value="<?php echo $cabang->ID_CABANG;?>">Cabang-<?php echo $cabang->NAMA_CABANG;?></option>
+           <?php };?>
+          </select>
+        </div>
         <div class="form-group has-feedback">
          <input type="password" class="form-control" placeholder="Password" name="password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -77,7 +91,7 @@
           </div> -->
 
           <div class="col-xs-offset-8 col-xs-4">
-            <button type="submit" class="btn btn-success btn-block btn-flat">Sign Up</button>
+            <!-- <button type="submit" class="btn btn-success btn-block btn-flat">Sign Up</button> -->
           </div>
 
         </div>

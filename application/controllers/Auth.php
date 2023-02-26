@@ -11,6 +11,7 @@ class Auth extends CI_Controller
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->model('M_auth');
+		$this->load->model('M_frontend');
 		require APPPATH . 'third_party/PHPMailer/Exception.php';
 		require APPPATH . 'third_party/PHPMailer/PHPMailer.php';
 		require APPPATH . 'third_party/PHPMailer/SMTP.php';
@@ -56,6 +57,7 @@ class Auth extends CI_Controller
 	public function signup()
 	{
 		$data['judul'] 	= "Signup BSPID";
+		$data['C']=$this->M_frontend->select_all_branch();
 		$this->load->view('v_register', $data);
 	}
 

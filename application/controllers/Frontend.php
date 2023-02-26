@@ -16,10 +16,12 @@ class Frontend extends CI_Controller
     {
         $data['D']=$this->M_frontend->total_desposit();
         $data['N']=$this->M_frontend->total_nasabah();
-        $data['S']=$this->M_frontend->total_Sampah();
+        $data['S']=$this->M_frontend->total_sampah();
         $data['P']=$this->M_frontend->select_all_product();
+        $data['C']=$this->M_frontend->select_all_branch();
         $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
-        $data['totalunit']  = "2";
+        $data['TC']=$this->M_frontend->total_unit();
+        
         $data['telpon']='085780390850';
         $data['tagline']='Digitalisasi Sampah';
         $Comment='Alhamdulillah ya selama 2 tahun lebih menjadi bank sampah unit di Bank Sampah Pintar pelayanannya bagus.
@@ -31,6 +33,7 @@ class Frontend extends CI_Controller
 			["Foto"=>"testimonial-2.jpg","Comment"=>$Comment,"Petugas"=>"Slamet",'Unit'=>'Unit 02'],
 			["Foto"=>"testimonial-1.jpg","Comment"=>$Comment,"Petugas"=>"Sarah",'Unit'=>'Unit 03'] 
 		];
+
         
         // $this->load->view('frontend/v_index', $data);
         $this->load->view('frontend/v_header',$data);
@@ -40,6 +43,7 @@ class Frontend extends CI_Controller
 
     public function tentangkami()
     {
+        $data['C']=$this->M_frontend->select_all_branch();
         $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
         $data['totalunit']  = "3";
         $data['telpon']='085780390850';
@@ -51,6 +55,7 @@ class Frontend extends CI_Controller
     }
     public function layanan()
     {
+        $data['C']=$this->M_frontend->select_all_branch();
         $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
         $data['totalunit']  = "3";
         $data['telpon']='085780390850';

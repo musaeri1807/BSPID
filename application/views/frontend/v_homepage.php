@@ -142,7 +142,6 @@
     </div>
     <!-- About End -->
 
-
     <!-- Facts Start -->
     <div class="container-fluid bg-primary facts py-5 mb-5">
         <div class="container py-5">
@@ -154,7 +153,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white">Unit Bank Sampah</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $totalunit; ?></h1>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo $TC->UNIT; ?></h1>
                         </div>
                     </div>
                 </div>
@@ -397,6 +396,10 @@
                 <h2 class="display-5">Bank Sampah Pintar</h2>
             </div>
             <div class="row g-5">
+                <?php foreach ($C AS $Cabang ){
+                   
+             
+                ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="row g-0">
                         <div class="col-10">
@@ -404,7 +407,7 @@
                                 <img class="img-fluid w-100" src="<?php echo base_url(); ?>assets_frontend/img/coverproduk/115789_trash_icon.png" alt="">
                                 <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
                                     <h4 class="text-white"></h4>
-                                    <span class="text-white">Pok Lisa Jaka</span>
+                                    <span class="text-white"><?php  echo $Cabang->NAMA_CABANG; ?></span>
                                 </div>
                             </div>
                         </div>
@@ -418,48 +421,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="row g-0">
-                        <div class="col-10">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="<?php echo base_url(); ?>assets_frontend/img/coverproduk/115789_trash_icon.png" alt="">
-                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
-                                    <h4 class="text-white"></h4>
-                                    <span class="text-white">Pok Lisa Jaka</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-twitter text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-facebook-f text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-linkedin-in text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-instagram text-secondary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               <div class="col-lg-4 col-md-6">
-                    <div class="row g-0">
-                        <div class="col-10">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="<?php echo base_url(); ?>assets_frontend/img/coverproduk/115789_trash_icon.png" alt="">
-                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
-                                    <h4 class="text-white"></h4>
-                                    <span class="text-white">Pok Lisa Jaka</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-twitter text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-facebook-f text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-linkedin-in text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-instagram text-secondary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
+        
+             
             </div>
         </div>
     </div>

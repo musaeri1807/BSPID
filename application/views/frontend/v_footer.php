@@ -23,7 +23,7 @@
                                 <p class="text-white mb-0">62812-8193-686 CS 02</p>
                             </div>
                             <div class="d-flex mt-4">
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6281380451211"><i class="fab fa-whatsapp"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://api.whatsapp.com/send?phone=6285780390850"><i class="fab fa-whatsapp"></i></a>
                                 <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://id-id.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-secondary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/miga-informatika-71b407257/"><i class="fab fa-linkedin-in"></i></a>
@@ -42,19 +42,14 @@
                                     Us</a>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h4 class="text-white mb-4">Popular Links</h4>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <h4 class="text-white mb-4">Unit Cabang</h4>
                             <div class="d-flex flex-column justify-content-start">
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our
-                                    Services</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact
-                                    Us</a>
+                                <?php foreach ($C AS $Cabang ){  ?>                  
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i> <?php echo $Cabang->NAMA_CABANG;?></a>
+                                <?php }?>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-lg-n5">
