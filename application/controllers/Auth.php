@@ -73,12 +73,13 @@ class Auth extends CI_Controller
 			$data['C']=$this->M_frontend->select_all_branch();
 			$this->load->view('v_register', $data);
 		}else{
-			echo "input data";
+			// echo "input data";
 			$R=[
 				'field_nama'  		=>$this->input->post('name'),
 				'field_email' 		=>$this->input->post('email'),
 				'field_handphone'  	=>$this->input->post('nohp'),
-				'field_password'	=>password_hash($this->input->post('password'),PASSWORD_DEFAULT)
+				'field_password'	=>password_hash($this->input->post('password'),PASSWORD_DEFAULT),
+				'field_branch'		=>$this->input->post('cabang')
 			];
 
 			var_dump($R);

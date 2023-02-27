@@ -68,10 +68,10 @@
         </div>
           <div class="form-group has-feedback">
           <select name="cabang" id="cabang" class="form-control">
-            <option value="">--Pilih Cabang--</option>
+            <option value="">--Pilih Cabang Nasabah Mendaftar--</option>
             <?php foreach ($C AS $cabang){
               ?>
-              <option value="<?php echo $cabang->ID_CABANG;?>">Cabang-<?php echo $cabang->NAMA_CABANG;?></option>
+              <option value="<?php echo $cabang->ID_CABANG;?>">Cabang BSP- <?php echo $cabang->NAMA_CABANG;?></option>
            <?php };?>
           </select>
           <?= form_error('cabang', '<small class="text-danger pl-3">', '</small>'); ?>
