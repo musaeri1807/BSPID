@@ -56,9 +56,33 @@ class Auth extends CI_Controller
 
 	public function signup()
 	{
-		$data['judul'] 	= "Signup BSPID";
-		$data['C']=$this->M_frontend->select_all_branch();
-		$this->load->view('v_register', $data);
+		$this->form_validation->set_rules('name', 'Nama Lengkap', 'required|trim');
+		$this->form_validation->set_rules('cabang', 'Cabang Bank Sampah', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbluserlogin.field_email]', [
+            'is_unique' => 'Email ini telah terdaftar!'
+        ]);
+		 $this->form_validation->set_rules('nohp', 'Nomo HP', 'required|trim|min_length[10]|max_length[12]|is_unique[tbluserlogin.field_handphone]', [
+            'is_unique' => 'Nomor ini telah terdaftar!'
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[5]', [            
+            'min_length' => 'Kata sandi terlalu pendek!'
+        ]);
+
+		if ($this->form_validation->run()==false){
+			$data['judul'] 	= "Signup BSPID";
+			$data['C']=$this->M_frontend->select_all_branch();
+			$this->load->view('v_register', $data);
+		}else{
+			echo "input data";
+			$R=[
+				'field_nama'  		=>$this->input->post('name'),
+				'field_email' 		=>$this->input->post('email'),
+				'field_handphone'  	=>$this->input->post('nohp'),
+				'field_password'	=>password_hash($this->input->post('password'),PASSWORD_DEFAULT)
+			];
+
+			var_dump($R);
+		}
 	}
 
 	public function lupapassword()

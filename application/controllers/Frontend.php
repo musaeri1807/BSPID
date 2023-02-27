@@ -103,7 +103,6 @@ class Frontend extends CI_Controller
             $no = $Nomor + 1;
             $char=$th.$bln;
             $Iduser = $char . sprintf("%04s", $no);
-
             $user = [
                 'field_employees_id'=>  $Iduser,
                 'field_name_officer'=> $this->input->post('name'),

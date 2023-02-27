@@ -50,33 +50,35 @@
           ?>
       </p>
 
-      <form action="<?php echo base_url('Auth/login'); ?>" method="post">
-        <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Username" name="username">
+      <form action="<?php echo base_url('Auth/signup'); ?>" method="post">
+        <div class="form-group has-feedback">          
+          <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name'); ?>">
+          <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email" name="email">
+          <input type="email" class="form-control " id="email" name="email" placeholder="Email" value="<?= set_value('email'); ?>">
+          <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>         
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
-        <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password" name="password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <div class="form-group has-feedback">          
+          <input type="number" class="form-control " id="nohp" name="nohp" placeholder="Nomor HP" value="<?= set_value('nohp'); ?>">
+          <?= form_error('nohp', '<small class="text-danger pl-3">', '</small>'); ?>  
+          <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
         </div>
           <div class="form-group has-feedback">
-          <!-- <input type="cabang" class="form-control" placeholder="Cabang" name="cabang"> -->
-          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
           <select name="cabang" id="cabang" class="form-control">
             <option value="">--Pilih Cabang--</option>
-
             <?php foreach ($C AS $cabang){
               ?>
               <option value="<?php echo $cabang->ID_CABANG;?>">Cabang-<?php echo $cabang->NAMA_CABANG;?></option>
            <?php };?>
           </select>
+          <?= form_error('cabang', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
         <div class="form-group has-feedback">
-         <input type="password" class="form-control" placeholder="Password" name="password">
+          <input type="password" class="form-control " id="password" name="password" placeholder="Password" value="<?= set_value('password'); ?>">
+          <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>         
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           Silakan klik <a href="<?php echo base_url('Auth'); ?>">|<b>Login</b> |</a><br>
           Jika Kehilangan Akses Klik <a href="<?php echo base_url('Auth/lupapassword'); ?>">|<b>Lupa Password</b>|</a>
@@ -91,7 +93,7 @@
           </div> -->
 
           <div class="col-xs-offset-8 col-xs-4">
-            <!-- <button type="submit" class="btn btn-success btn-block btn-flat">Sign Up</button> -->
+            <button type="submit" class="btn btn-success btn-block btn-flat">Sign Up</button>
           </div>
 
         </div>
