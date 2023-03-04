@@ -93,7 +93,7 @@
       <!-- Main content -->
       <section class="content">
         <div class="callout callout-info">
-          <p>Patikan Anda Sudah membaca aturan yang berlaku</p>
+          <p>Kantor Pusat Bank Sampah Pintar ( https://bspid.id ) Jl Raya Jatinegara Kaum Jakarta Timur Hubungi kami di  085780390850 atau Email admin@bspid.id</p>
         </div>
         <?= $this->session->flashdata('message'); ?>
         <form action="<?= base_url('Frontend/unit'); ?>" method="post">

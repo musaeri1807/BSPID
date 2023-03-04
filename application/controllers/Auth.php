@@ -79,7 +79,12 @@ class Auth extends CI_Controller
 				'field_email' 		=>$this->input->post('email'),
 				'field_handphone'  	=>$this->input->post('nohp'),
 				'field_password'	=>password_hash($this->input->post('password'),PASSWORD_DEFAULT),
-				'field_branch'		=>$this->input->post('cabang')
+				'field_branch'		=>$this->input->post('cabang'),
+				'field_status_aktif'=>'0',
+				'field_blokir_status'=>'A',
+				'field_log'			=>date('Y-m-d H:s'),
+				'field_token_otp'	=>date('Y'),
+				'field_ipaddress'	=>$_SERVER['REMOTE_ADDR']
 			];
 
 			var_dump($R);
