@@ -30,8 +30,8 @@ class Auth extends CI_Controller
 
 	public function login()
 	{
-		$this->form_validation->set_rules('txt_email', 'Email', 'required');
-		$this->form_validation->set_rules('txt_password', 'Password', 'required');
+		$this->form_validation->set_rules('txt_email', 'Email', 'required|trim');
+		$this->form_validation->set_rules('txt_password', 'Password', 'required|trim');
 		if ($this->form_validation->run() == TRUE) {
 			$username = trim($_POST['txt_email']);
 			$pass = trim($_POST['txt_password']);
@@ -58,35 +58,35 @@ class Auth extends CI_Controller
 	{
 		$this->form_validation->set_rules('name', 'Nama Lengkap', 'required|trim');
 		$this->form_validation->set_rules('cabang', 'Cabang Bank Sampah', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbluserlogin.field_email]', [
-            'is_unique' => 'Email ini telah terdaftar!'
-        ]);
-		 $this->form_validation->set_rules('nohp', 'Nomo HP', 'required|trim|min_length[10]|max_length[12]|is_unique[tbluserlogin.field_handphone]', [
-            'is_unique' => 'Nomor ini telah terdaftar!'
-        ]);
-        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[5]', [            
-            'min_length' => 'Kata sandi terlalu pendek!'
-        ]);
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbluserlogin.field_email]', [
+			'is_unique' => 'Email ini telah terdaftar!'
+		]);
+		$this->form_validation->set_rules('nohp', 'Nomo HP', 'required|trim|min_length[10]|max_length[12]|is_unique[tbluserlogin.field_handphone]', [
+			'is_unique' => 'Nomor ini telah terdaftar!'
+		]);
+		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[5]', [
+			'min_length' => 'Kata sandi terlalu pendek!'
+		]);
 
-		if ($this->form_validation->run()==false){
+		if ($this->form_validation->run() == false) {
 			$data['judul'] 	= "Signup BSPID";
-			$data['C']=$this->M_frontend->select_all_branch();
+			$data['C'] = $this->M_frontend->select_all_branch();
 			$this->load->view('v_register', $data);
-		}else{
+		} else {
 			// echo "input data";
-			$R=[
-				'field_nama'  		=>$this->input->post('name'),
-				'field_email' 		=>$this->input->post('email'),
-				'field_handphone'  	=>$this->input->post('nohp'),
-				'field_password'	=>password_hash($this->input->post('password'),PASSWORD_DEFAULT),
-				'field_branch'		=>$this->input->post('cabang'),
-				'field_status_aktif'=>'0',
-				'field_blokir_status'=>'A',
-				'field_log'			=>date('Y-m-d H:s'),
-				'field_token_otp'	=>date('Y'),
-				'field_ipaddress'	=>$_SERVER['REMOTE_ADDR']
+			$R = [
+				'field_nama'  		=> $this->input->post('name'),
+				'field_email' 		=> $this->input->post('email'),
+				'field_handphone'  	=> $this->input->post('nohp'),
+				'field_password'	=> password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+				'field_branch'		=> $this->input->post('cabang'),
+				'field_status_aktif' => '0',
+				'field_blokir_status' => 'A',
+				'field_log'			=> date('Y-m-d H:s'),
+				'field_token_otp'	=> date('Y'),
+				'field_ipaddress'	=> $_SERVER['REMOTE_ADDR']
 			];
-
+			$this->db->insert('tbluserlogin', $R);
 			var_dump($R);
 		}
 	}
@@ -115,18 +115,28 @@ class Auth extends CI_Controller
 	public function send_mail()
 	{
 		$email = $this->input->post('email');
+
 		$sql = "SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1";
 		$get_nas = $this->db->query($sql);
+
 		$query = $this->db->query("SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1");
 		$row = $query->row();
-
+		$password = rand();
+		$pass = password_hash($password, PASSWORD_DEFAULT);
+		$data = array(
+			'field_password' => $pass
+		);
 
 		if ($get_nas->num_rows() > 0) {
-			$tokenn = md5('sadfkjkjiqwfkjifqwfwfu');
-			$nama = $row->field_nama;
-			$password = $row->Password;
 
-			$from = 'No Replay';
+			$this->db->where('field_email', $email);
+			$this->db->update('tbluserlogin', $data);
+
+			$tokenn = md5(date('H:I:S'));
+			$nama = $row->field_nama;
+
+
+			$from = 'Bank Sampah Pintar';
 			if ($this->input->post('pilih') == 'forgot') {
 				$subject = 'Reset Password';
 				$content = 'Reset Password';
@@ -163,14 +173,14 @@ class Auth extends CI_Controller
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
-				$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
-				// $this->session->set_flashdata('message', 'Email Terkirim');
+				// $out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
+				$this->session->set_flashdata('message', show_succ_msg('Password dikirim ke Email'));
 				redirect('Auth');
 			}
 		} else {
 			// $this->session->set_flashdata('message', '');
-			$this->session->set_flashdata('msg', show_err_msg('Email Tidak Di Temukan'));
-			redirect('Frontend');
+			$this->session->set_flashdata('message', show_err_msg('Email tidak ditemukan'));
+			redirect('Auth/lupapassword');
 		}
 	}
 }

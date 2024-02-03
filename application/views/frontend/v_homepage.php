@@ -186,7 +186,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white">Total Emas (gr)</h5>
-                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo round($D->TOTAL_EMAS,2);?></h1>
+                            <h1 class="display-5 text-white mb-0" data-toggle="counter-up"><?php echo round($D->TOTAL_ED,2)- round($W->TOTAL_EW,2);?></h1>
                         </div>
                     </div>
                 </div>
