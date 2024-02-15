@@ -36,7 +36,7 @@
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                    <h2 class="mb-0"><?php echo $telpon;?></h2>
+                    <h2 class="mb-0"><?php echo $telpon; ?></h2>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -45,7 +45,7 @@
                     <a href="<?php echo base_url(); ?>" class="navbar-brand ms-lg-3">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Bank Sampah</span> Pintar
                         </h1>
-                        <h3><?php echo $tagline;?></h3>
+                        <h3><?php echo $tagline; ?></h3>
                     </a>
                 </div>
             </div>
@@ -74,13 +74,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
-                <a href="<?php echo base_url('Frontend/index'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="index"){echo "active";}?>">Home</a>
-                <a href="<?php echo base_url('Frontend/tentangkami'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="tentangkami"){echo "active";}?>">Tentang Kami</a>
-                <a href="<?php echo base_url('Frontend/layanan'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="layanan"){echo "active";}?>">Layanan</a>
-                <!-- <a href="<?php echo base_url('Frontend/tonase'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="tonase"){echo "active";}?>">Tonase</a> -->
+                <a href="<?php echo base_url('Frontend/index'); ?>" class="nav-item nav-link <?php if ($this->uri->segment(2) == "index") {
+                                                                                                    echo "active";
+                                                                                                } ?>">Home</a>
+                <a href="<?php echo base_url('Frontend/tentangkami'); ?>" class="nav-item nav-link <?php if ($this->uri->segment(2) == "tentangkami") {
+                                                                                                        echo "active";
+                                                                                                    } ?>">Tentang Kami</a>
+                <!-- <a href="<?php echo base_url('Frontend/layanan'); ?>" class="nav-item nav-link <?php if ($this->uri->segment(2) == "layanan") {
+                                                                                                    echo "active";
+                                                                                                } ?>">Layanan</a> -->
+                <!-- <a href="<?php echo base_url('Frontend/tonase'); ?>" class="nav-item nav-link <?php if ($this->uri->segment(2) == "tonase") {
+                                                                                                        echo "active";
+                                                                                                    } ?>">Tonase</a> -->
                 <!-- <a href="product.html" class="nav-item nav-link">Produk</a> -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="<?php echo base_url('Frontend/layananunit'); ?>" class="dropdown-item">Layanan Unit BSP</a>
+                        <a href="<?php echo base_url('Frontend/layanannasabah'); ?>" class="dropdown-item">Layanan Nasabah BSP</a>
+                    </div>
+                </div>
                 <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
                     <div class="dropdown-menu m-0">
                         <a href="blog.html" class="dropdown-item">Blog</a>
                         <a href="<?php echo base_url('Frontend/unit'); ?>" class="dropdown-item">Layanan Bank Sampah</a>

@@ -179,7 +179,7 @@
                         <!-- <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
                             lorem diam no duo sed dolore amet diam</p> -->
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
-                        <a href="<?php echo base_url('Frontend/layanan') ?>" class="btn btn-secondary py-md-3 px-md-5">Daftar Personal</a>
+                        <a href="<?php echo base_url('Frontend/layanannasabah') ?>" class="btn btn-secondary py-md-3 px-md-5">Daftar Personal</a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -188,7 +188,7 @@
                         <!-- <p class="text-white">Dolor magna ipsum elitr sea erat elitr amet ipsum stet justo dolor, amet
                             lorem diam no duo sed dolore amet diam</p> -->
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
-                        <a href="<?php echo base_url('Frontend/layanan') ?>" class="btn btn-primary py-md-3 px-md-5 me-3">Daftar Unit </a>
+                        <a href="<?php echo base_url('Frontend/layananunit') ?>" class="btn btn-primary py-md-3 px-md-5 me-3">Daftar Unit </a>
                     </div>
                 </div>
             </div>

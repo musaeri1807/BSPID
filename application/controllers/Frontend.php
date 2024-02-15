@@ -55,7 +55,7 @@ class Frontend extends CI_Controller
         $this->load->view('frontend/v_tentangkami', $data);
         $this->load->view('frontend/v_footer', $data);
     }
-    public function layanan()
+    public function layanannasabah()
     {
         $data['C'] = $this->M_frontend->select_all_branch();
         $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
@@ -63,7 +63,18 @@ class Frontend extends CI_Controller
         $data['telpon'] = '085780390850';
         $data['tagline'] = 'Digitalisasi Sampah';
         $this->load->view('frontend/v_header', $data);
-        $this->load->view('frontend/v_layanan', $data);
+        $this->load->view('frontend/v_layanannasabah', $data);
+        $this->load->view('frontend/v_footer', $data);
+    }
+    public function layananunit()
+    {
+        $data['C'] = $this->M_frontend->select_all_branch();
+        $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
+        $data['totalunit']  = "3";
+        $data['telpon'] = '085780390850';
+        $data['tagline'] = 'Digitalisasi Sampah';
+        $this->load->view('frontend/v_header', $data);
+        $this->load->view('frontend/v_layananunit', $data);
         $this->load->view('frontend/v_footer', $data);
     }
 
