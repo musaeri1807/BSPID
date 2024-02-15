@@ -17,8 +17,8 @@
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="mb-3">
-                        <h6 class="text-primary text-uppercase">Layanan</h6>
-                        <h1 class="display-5">Bank Sampah Pintar Nasabah</h1>
+                        <h6 class="text-primary text-uppercase">Syarat Menjadi</h6>
+                        <h1 class="display-5">Nasabah Bank Sampah Pintar </h1>
                     </div>
                     <p class="mb-4">
 
@@ -72,21 +72,21 @@
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="mb-3">
-                        <h6 class="text-primary text-uppercase">Layanan</h6>
-                        <h1 class="display-5">Bank Sampah Pintar Unit</h1>
+                        <h6 class="text-primary text-uppercase">Syarat Menjadi</h6>
+                        <h1 class="display-5">Unit Bank Sampah Pintar </h1>
                     </div>
                     <p class="mb-4">
 
 
                     </p>
                     <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFOdOfba2ANyCajghmWWSGCGjbOPrSSN19jpoQy6oEeNaP4A/viewform" target="#" class="btn btn-primary py-md-3 px-md-5">Isi Formulir</a> -->
-                    <a href="<?php echo base_url('Frontend/unit');?>" target="#" class="btn btn-primary py-md-3 px-md-5">Isi Formulir</a>
+                    <a href="<?php echo base_url('Frontend/unit'); ?>" target="#" class="btn btn-primary py-md-3 px-md-5">Isi Formulir</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-user-circle display-1 text-primary mb-3"></i>
                         <h4>Penguna Bank Sampah</h4>
-                        <p class="mb-0">Hubungi admin Bank Sampah Pintar</p>
+                        <p class="mb-0">Harus dekat dengan ButiK LM ANTAM</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -154,4 +154,3 @@
         </div>
     </div>
     <!-- Testimonial End -->
-

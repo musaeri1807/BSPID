@@ -31,13 +31,14 @@ class Auth extends CI_Controller
 	public function login()
 	{
 		$this->form_validation->set_rules('txt_email', 'Email', 'required|trim');
+		// $this->form_validation->set_rules('txt_email', 'Email or Phone', 'required|callback_validate_email_or_phone');
 		$this->form_validation->set_rules('txt_password', 'Password', 'required|trim');
 		if ($this->form_validation->run() == TRUE) {
 			$username = trim($_POST['txt_email']);
 			$pass = trim($_POST['txt_password']);
 			$data = $this->M_auth->login($username);
 			if (!password_verify($pass, $data->field_password) == true) {
-				$this->session->set_flashdata('error_msg', 'Username atau Password Anda Salah.');
+				$this->session->set_flashdata('message', 'Username atau Password Anda Salah.');
 				redirect('Auth');
 			} else {
 				$session = [
@@ -49,7 +50,7 @@ class Auth extends CI_Controller
 				redirect('Home');
 			}
 		} else {
-			$this->session->set_flashdata('error_msg', validation_errors());
+			$this->session->set_flashdata('message', validation_errors());
 			redirect('Auth');
 		}
 	}

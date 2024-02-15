@@ -13,6 +13,7 @@ class Frontend extends CI_Controller
 
     public function index()
     {
+        $data['TT'] = $this->M_frontend->total_tonase();
         $data['D'] = $this->M_frontend->total_desposit();
         $data['W'] = $this->M_frontend->total_withdraw();
         $data['N'] = $this->M_frontend->total_nasabah();
@@ -33,6 +34,8 @@ class Frontend extends CI_Controller
             ["Foto" => "testimonial-2.jpg", "Comment" => $Comment, "Petugas" => "Slamet", 'Unit' => 'Unit 02'],
             ["Foto" => "testimonial-1.jpg", "Comment" => $Comment, "Petugas" => "Sarah", 'Unit' => 'Unit 03']
         ];
+
+        //rumus tonase
 
 
         // $this->load->view('frontend/v_index', $data);
@@ -61,6 +64,20 @@ class Frontend extends CI_Controller
         $data['tagline'] = 'Digitalisasi Sampah';
         $this->load->view('frontend/v_header', $data);
         $this->load->view('frontend/v_layanan', $data);
+        $this->load->view('frontend/v_footer', $data);
+    }
+
+    public function tonase()
+    {
+        $data['T'] = $this->M_frontend->tonase();
+        $data['TT'] = $this->M_frontend->total_tonase();
+        $data['C'] = $this->M_frontend->select_all_branch();
+        $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
+        $data['totalunit']  = "3";
+        $data['telpon'] = '085780390850';
+        $data['tagline'] = 'Digitalisasi Sampah';
+        $this->load->view('frontend/v_header', $data);
+        $this->load->view('frontend/v_tonase', $data);
         $this->load->view('frontend/v_footer', $data);
     }
 

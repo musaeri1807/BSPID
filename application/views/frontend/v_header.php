@@ -77,13 +77,14 @@
                 <a href="<?php echo base_url('Frontend/index'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="index"){echo "active";}?>">Home</a>
                 <a href="<?php echo base_url('Frontend/tentangkami'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="tentangkami"){echo "active";}?>">Tentang Kami</a>
                 <a href="<?php echo base_url('Frontend/layanan'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="layanan"){echo "active";}?>">Layanan</a>
+                <!-- <a href="<?php echo base_url('Frontend/tonase'); ?>" class="nav-item nav-link <?php if($this->uri->segment(2)=="tonase"){echo "active";}?>">Tonase</a> -->
                 <!-- <a href="product.html" class="nav-item nav-link">Produk</a> -->
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
                     <div class="dropdown-menu m-0">
-                        <a href="blog.html" class="dropdown-item">Karir</a>
-                        <a href="detail.html" class="dropdown-item">Layanan Bank</a>
-                        <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="blog.html" class="dropdown-item">Blog</a>
+                        <a href="<?php echo base_url('Frontend/unit'); ?>" class="dropdown-item">Layanan Bank Sampah</a>
+                        <a href="feature.html" class="dropdown-item">Login Blog</a>
                         <a href="team.html" class="dropdown-item">The Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                     </div>
