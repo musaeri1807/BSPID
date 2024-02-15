@@ -74,21 +74,81 @@ class Auth extends CI_Controller
 			$data['C'] = $this->M_frontend->select_all_branch();
 			$this->load->view('v_register', $data);
 		} else {
-			// echo "input data";
+
+			// $C = $this->input->post('cabang');
+			// $N = $this->input->post('nohp');
+			// echo $CN = $C.$N;
 			$R = [
-				'field_nama'  		=> $this->input->post('name'),
-				'field_email' 		=> $this->input->post('email'),
-				'field_handphone'  	=> $this->input->post('nohp'),
-				'field_password'	=> password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-				'field_branch'		=> $this->input->post('cabang'),
-				'field_status_aktif' => '0',
-				'field_blokir_status' => 'A',
-				'field_log'			=> date('Y-m-d H:s'),
-				'field_token_otp'	=> date('Y'),
-				'field_ipaddress'	=> $_SERVER['REMOTE_ADDR']
+				'field_nama'  			=> $this->input->post('name'),
+				'field_email' 			=> $this->input->post('email'),
+				'field_handphone'  		=> $this->input->post('nohp'),
+				'field_password'		=> password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+				'field_branch'			=> $this->input->post('cabang'),
+				'field_status_aktif' 	=> '0',
+				'field_blokir_status' 	=> 'A',
+				'field_token'			=> hash('sha256', md5(date('Y-m-d h:i:s'))),
+				'field_log'				=> date('Y-m-d H:i:s'),
+				'field_tanggal_reg' 	=> date('Y-m-d'),
+				'field_time_reg' 		=> date('H:i:s'),
+				'field_token_otp'		=> (rand(999, 9999)),
+				'field_member_id'		=> $this->input->post('cabang') . $this->input->post('nohp'),
+				'field_ipaddress'		=> $_SERVER['REMOTE_ADDR']
 			];
-			$this->db->insert('tbluserlogin', $R);
-			var_dump($R);
+			if ($this->db->insert('tbluserlogin', $R) == TRUE) {
+				# code...
+				// echo $this->db->insert_id();
+				$ID = [
+					'id_UserLogin'		=> $this->db->insert_id()
+				];
+
+				$this->db->insert('tblnasabah', $ID);
+				$this->db->insert('tblpewaris', $ID);
+				// var_dump($R);
+				// Send Email Register
+				$email		= $this->input->post('email');
+				$password	= $this->input->post('password');
+				$tokenn 	= hash('sha256', md5(date('Y-m-d h:i:s')));
+				$nama 		= $this->input->post('name');
+				$from 		= 'Bank Sampah Pintar';
+				$subject 	= 'Akun Verifikasi';
+				$content 	= 'Pendaftaran';
+				$button  	= 'Aktifkan';
+
+
+
+				// PHPMailer object
+				// $response = false;
+				$mail = new PHPMailer();
+
+				// SMTP configuration
+				$mail->isSMTP();
+				$mail->Host     = SERVERMAIL; //sesuaikan sesuai nama domain hosting/server yang digunakan
+				$mail->SMTPAuth = true;
+				$mail->Username = EMAIL; // user email
+				$mail->Password = PASSMAIL; // password email
+				$mail->SMTPSecure = 'ssl';
+				$mail->Port     = 465;
+
+				$mail->setFrom(EMAIL, $from); // user email
+				$mail->addReplyTo('', 'noreply'); //user email
+				$mail->addAddress($this->input->post('email')); //email tujuan pengiriman email
+				$mail->Subject = $subject; //subject email
+				$mail->isHTML(true);
+				$mail->Body = sendmailverifikasi($nama, $email, $content, $password, $tokenn, $button);
+
+				// Send email
+				if (!$mail->send()) {
+					echo 'Message could not be sent.';
+					echo 'Mailer Error: ' . $mail->ErrorInfo;
+				} else {
+					// $out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
+					$this->session->set_flashdata('message', show_succ_msg('Password dikirim ke Email'));
+					redirect('Auth');
+				}
+			} else {
+				# code...
+				// die();
+			}
 		}
 	}
 
@@ -109,8 +169,39 @@ class Auth extends CI_Controller
 	//verifikasi
 	public function verifikasi()
 	{
-		$email = $this->input->get('M');
-		var_dump($email);
+		echo $email = $this->input->get('email');
+		echo $token = $this->input->get('token');
+		die();
+		$user = $this->db->get_where('user', ['email' => $email])->row_array();
+
+		if ($user) {
+			$user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+
+			if ($user_token) {
+				if (time() - $user_token['date_created'] < (60 * 60 * 24)) {
+					$this->db->set('is_active', 1);
+					$this->db->where('email', $email);
+					$this->db->update('user');
+
+					$this->db->delete('user_token', ['email' => $email]);
+
+					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' has been activated! Please login.</div>');
+					redirect('auth');
+				} else {
+					$this->db->delete('user', ['email' => $email]);
+					$this->db->delete('user_token', ['email' => $email]);
+
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Token expired.</div>');
+					redirect('auth');
+				}
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Wrong token.</div>');
+				redirect('auth');
+			}
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Wrong email.</div>');
+			redirect('auth');
+		}
 	}
 	//Kirim Email
 	public function send_mail()
