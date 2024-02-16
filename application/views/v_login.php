@@ -36,7 +36,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="<?php echo base_url('Auth/login'); ?>"><b>Login</b></a>
+      <a href="<?php echo base_url('Auth/login'); ?>"><b>Login Nasabah</b></a>
     </div>
 
     <!-- /.login-logo -->
@@ -50,7 +50,7 @@
 
       <form action="<?php echo base_url('Auth/login'); ?>" method="post">
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email" name="txt_email">
+          <input type="text" class="form-control" placeholder="Email atau HP" name="txt_email">
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
@@ -73,7 +73,7 @@
           </div> -->
 
           <div class="col-xs-offset-8 col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
           </div>
 
         </div>

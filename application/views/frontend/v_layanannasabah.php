@@ -42,16 +42,16 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-phone display-1 text-primary mb-3"></i>
-                        <h4>Nomor telpon</h4>
-                        <p class="mb-0">Mempunyai nomor telpon yang bisa di hubungi</p>
+                        <!-- <i class="fa fa-calculator display-1 text-primary mb-3"></i>
+                        <h4>Tabungan</h4>
+                        <p class="mb-0">Melayanai Tabungan Emas</p> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-calculator display-1 text-primary mb-3"></i>
-                        <h4>Tabungan</h4>
-                        <p class="mb-0">Melayanai Tabungan Emas</p>
+                        <i class="fa fa-phone display-1 text-primary mb-3"></i>
+                        <h4>Nomor telpon</h4>
+                        <p class="mb-0">Mempunyai nomor telpon yang bisa di hubungi</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">

@@ -67,7 +67,9 @@ class M_frontend extends CI_Model
     }
     public function select_all_branch()
     {
-        $sql = "SELECT B.field_branch_id AS ID_CABANG,W.field_nama_desa AS NAMA_CABANG FROM tblbranch B 
+        $sql = "SELECT B.field_branch_id AS ID_CABANG,W.field_nama_desa AS LOKASI ,BD.organisasi AS NAMA_CABANG
+                FROM tblbranch B 
+                LEFT JOIN tblbranchdetail BD ON B.field_id=BD.id_branch
                 LEFT JOIN tblwilayahdesa W ON B.field_branch_id=W.field_desa_id 
                 WHERE B.field_id !=8 AND Is_Active='Y'
                 GROUP BY ID_CABANG

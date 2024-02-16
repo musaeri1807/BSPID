@@ -36,18 +36,42 @@ class Auth extends CI_Controller
 		if ($this->form_validation->run() == TRUE) {
 			$username = trim($_POST['txt_email']);
 			$pass = trim($_POST['txt_password']);
-			$data = $this->M_auth->login($username);
-			if (!password_verify($pass, $data->field_password) == true) {
-				$this->session->set_flashdata('message', 'Username atau Password Anda Salah.');
-				redirect('Auth');
+			// $data = $this->M_auth->login($username);
+
+			$Q = $this->db->query("SELECT * FROM tbluserlogin WHERE field_email='$username' OR field_handphone='$username'");
+			$data  = $Q->row();
+			$N		= $Q->num_rows();
+			// var_dump($data);
+			// echo $data->field_user_id;
+			// die();
+
+
+			if ($N > 0) {
+				if (1 == $data->field_status_aktif or $username == $data->field_email and $username == $data->field_handphone) {
+					if (!password_verify($pass, $data->field_password) == true) {
+						$this->session->set_flashdata('message', 'Username atau Password Anda Salah.');
+						redirect('Auth');
+					} else {
+						$session = [
+							'userdata' => $data,
+							'status' => "Loged in",
+							'logged_in' => TRUE
+						];
+						$this->session->set_userdata($session);
+						redirect('Home');
+					}
+				} else {
+
+					// echo "AKUN BELUM AKTIF";
+					// $this->session->set_flashdata('message', 'Akun Belum Aktif.');
+					$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Akun Belum Aktif.!! .</div>');
+					redirect('Auth');
+				}
 			} else {
-				$session = [
-					'userdata' => $data,
-					'status' => "Loged in",
-					'logged_in' => TRUE
-				];
-				$this->session->set_userdata($session);
-				redirect('Home');
+				// $this->session->set_flashdata('message', 'Akun Belum Terdaftar.');
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar.!! .</div>');
+				redirect('Auth');
+				// echo "AKUN BELUM TERDAFTAR";
 			}
 		} else {
 			$this->session->set_flashdata('message', validation_errors());
@@ -74,10 +98,53 @@ class Auth extends CI_Controller
 			$data['C'] = $this->M_frontend->select_all_branch();
 			$this->load->view('v_register', $data);
 		} else {
+			$date    		= 	date('Y-m-d');
+			$cabang 		= 	$this->input->post('cabang');
+			$kode_cabang	=	$this->db->query("SELECT * FROM tblbranch B
+								WHERE B.field_branch_id=$cabang
+								ORDER BY B.field_branch_id DESC")->row_array();
+			$idaccount		=	$this->db->query("SELECT * FROM tbluserlogin U
+								JOIN tblnasabah N ON U.field_user_id=N.id_UserLogin
+								JOIN tblbranch B ON U.field_branch=B.field_branch_id
+								WHERE B.field_branch_id=$cabang
+								ORDER BY U.field_user_id DESC LIMIT 1")->row_array();
 
-			// $C = $this->input->post('cabang');
-			// $N = $this->input->post('nohp');
-			// echo $CN = $C.$N;
+
+
+			if (empty($idaccount)) {
+				$code                   = $kode_cabang["field_account_numbers"]; //cabang masing-masing
+				$thn                    = substr(date("Y", strtotime($date)), -2);
+				$bln                    = date("m", strtotime($date));
+				$no                     = 1;
+				$char                   = $code . $thn . $bln;
+				$norek                  = $char . sprintf("%04s", $no);
+				$norekening = $norek;
+			} else {
+				$ambildate = substr($idaccount['No_Rekening'], 4, 2);
+				if ($ambildate !== date("m", strtotime($date))) {
+					# code...
+					$code                   = $kode_cabang["field_account_numbers"]; //cabang masing-masing
+					$thn                    = substr(date("Y", strtotime($date)), -2);
+					$bln                    = date("m", strtotime($date));
+					$no                     = 1;
+					$char                   = $code . $thn . $bln;
+					$norek                  = $char . sprintf("%04s", $no);
+					$norekening = $norek;
+				} else {
+					# code...
+					$code                   = $kode_cabang["field_account_numbers"];
+					$noseri                 = $idaccount['No_Rekening'];
+					$noUrut                 = substr($noseri, 6);
+					$thn                    = substr(date("Y", strtotime($date)), -2);
+					$bln                    = date("m", strtotime($date));
+					$no     = $noUrut + 1;
+					$char   = $code . $thn . $bln;
+					$norek  = $char . sprintf("%04s", $no);
+					$norekening = $norek;
+				}
+			}
+
+
 			$R = [
 				'field_nama'  			=> $this->input->post('name'),
 				'field_email' 			=> $this->input->post('email'),
@@ -95,16 +162,17 @@ class Auth extends CI_Controller
 				'field_ipaddress'		=> $_SERVER['REMOTE_ADDR']
 			];
 			if ($this->db->insert('tbluserlogin', $R) == TRUE) {
-				# code...
-				// echo $this->db->insert_id();
+
+				$ID = [
+					'id_UserLogin'		=> $this->db->insert_id(),
+					'No_Rekening'		=> $norekening
+				];
+				$this->db->insert('tblnasabah', $ID);
 				$ID = [
 					'id_UserLogin'		=> $this->db->insert_id()
 				];
-
-				$this->db->insert('tblnasabah', $ID);
 				$this->db->insert('tblpewaris', $ID);
-				// var_dump($R);
-				// Send Email Register
+
 				$email		= $this->input->post('email');
 				$password	= $this->input->post('password');
 				$tokenn 	= hash('sha256', md5(date('Y-m-d h:i:s')));
@@ -169,38 +237,81 @@ class Auth extends CI_Controller
 	//verifikasi
 	public function verifikasi()
 	{
-		echo $email = $this->input->get('email');
-		echo $token = $this->input->get('token');
-		die();
-		$user = $this->db->get_where('user', ['email' => $email])->row_array();
+		$email = $this->input->get('email');
+		$token = $this->input->get('token');
 
-		if ($user) {
-			$user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+		$Q = $this->db->query("SELECT * FROM tbluserlogin U 
+								JOIN tblnasabah N ON U.field_user_id=N.id_UserLogin
+								WHERE U.field_status_aktif='0' 
+								AND U.field_email='$email' 
+								AND U.field_token='$token'
+								ORDER BY U.field_user_id DESC LIMIT 1");
+		$R  = $Q->row();
+		$N	= $Q->num_rows();
 
-			if ($user_token) {
-				if (time() - $user_token['date_created'] < (60 * 60 * 24)) {
-					$this->db->set('is_active', 1);
-					$this->db->where('email', $email);
-					$this->db->update('user');
+		// echo $R->field_email;
+		if ($N == 1) {
+			# code...
+			$member_id    		= $R->field_member_id;
+			$nama_lg      		= $R->field_nama;
+			$handphone    		= $R->field_handphone;
+			$Query_norekening 	= $R->No_Rekening;
+			$date     			= date('Y-m-d');
+			$time     			= date('H:i:s');
 
-					$this->db->delete('user_token', ['email' => $email]);
 
-					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' has been activated! Please login.</div>');
-					redirect('auth');
-				} else {
-					$this->db->delete('user', ['email' => $email]);
-					$this->db->delete('user_token', ['email' => $email]);
+			$this->db->query("UPDATE tblnasabah N, tbluserlogin U 
+							SET N.Tgl_Nasabah='$date',N.Konfirmasi='Y',U.field_status_aktif='1'
+							WHERE N.id_UserLogin=U.field_user_id AND U.field_email='$email'");
 
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Token expired.</div>');
-					redirect('auth');
-				}
+			//noReff
+			$nomor = $this->db->query("SELECT field_no_referensi FROM tbltrxmutasisaldo ORDER BY field_no_referensi DESC LIMIT 1")->row_array();
+			if ($nomor['field_no_referensi'] == "") {
+				$no = 1;
+				$thn = date('Y');
+				$thn = substr($thn, -2);
+				$reff = "Reff";
+				$char = $thn . $reff;
+				$noReff = $char . sprintf("%09s", $no);
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Wrong token.</div>');
-				redirect('auth');
+				//jika tahun pendaftaran user tidak sama dengan tahun hari ini maka nomor kereset menjadi awal jika tidak maka nomor melajutkan
+				$tahun = substr($R->field_tanggal_reg, 2, 2);
+				$tahunSekarang = substr(date('Y'), 2, 2);
+				if ($tahun !== $tahunSekarang) {
+					$no = 1;
+					$thn = date('Y');
+					$thn = substr($thn, -2);
+					$reff = "Reff";
+					$char = $thn . $reff;
+					$noReff = $char . sprintf("%09s", $no);
+				} else {
+					$noreff = $nomor['field_no_referensi'];
+					$noUrut = substr($noreff, 6);
+					$no = $noUrut + 1;
+					$thn = date('Y');
+					$thn = substr($thn, -2);
+					$reff = "Reff";
+					$char = $thn . $reff;
+					$noReff = $char . sprintf("%09s", $no);
+				}
 			}
+			$M = [
+				'field_member_id' 		=> $member_id,
+				'field_no_referensi'   	=> $noReff,
+				'field_rekening'    	=> $Query_norekening,
+				'field_tanggal_saldo'   => $date,
+				'field_time'  			=> $time,
+				'field_status' 			=> 'S',
+				'field_comments' 		=> "Balance"
+			];
+
+			$this->db->insert('tbltrxmutasisaldo', $M);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Aktivasi Sukses!! .</div>');
+			redirect('Auth');
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Wrong email.</div>');
-			redirect('auth');
+			# code...
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Aktivasi akun gagal!! Token expired.</div>');
+			redirect('Auth');
 		}
 	}
 	//Kirim Email

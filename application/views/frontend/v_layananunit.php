@@ -31,7 +31,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-user-circle display-1 text-primary mb-3"></i>
-                        <h4>Penguna Bank Sampah</h4>
+                        <h4>Lokasi Bank Sampah</h4>
                         <p class="mb-0">Harus dekat dengan ButiK LM ANTAM</p>
                     </div>
                 </div>
@@ -39,21 +39,21 @@
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-users display-1 text-primary mb-3"></i>
                         <h4>Organisasi</h4>
-                        <p class="mb-0">Pembentukkan pengurus Bank Sampah Pintar</p>
+                        <p class="mb-0">Sudah membentuk kepengurus Bank Sampah</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
-                        <i class="fa fa-tractor display-1 text-primary mb-3"></i>
+                        <!-- <i class="fa fa-tractor display-1 text-primary mb-3"></i>
                         <h4>Pelatihan</h4>
-                        <p class="mb-0">Diberika Pelatihan pengurus Bank Sampah Pintar</p>
+                        <p class="mb-0">Diberika Pelatihan pengurus Bank Sampah Pintar</p> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-circle-notch display-1 text-primary mb-3"></i>
                         <h4>Sosialiasi</h4>
-                        <p class="mb-0">Lakukan sosialisasi kepada warga</p>
+                        <p class="mb-0">Bank sampah Sudah mempunyai nasabah</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
