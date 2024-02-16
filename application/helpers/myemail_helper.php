@@ -311,8 +311,8 @@ function sendmailuser($nama, $email, $content, $password, $tokenn, $button)
                                                                   <table border="0" cellspacing="0" cellpadding="0">
                                                                       <tr>
                                                                           <td>
-                                                                              <a href="https://#/changepswd?key=' . $tokenn . '" class="button button--green"
-                                                                                  target="https://#/changepswd?key=' . $tokenn . '">' . $button . '</a>
+                                                                              <a href="' . base_url() . 'auth/changepassword?email=' . $email . '&token=' . urlencode($tokenn) . '" class="button button--green"
+                                                                                  target="' . base_url() . 'auth/changepassword?email=' . $email . '&token=' . urlencode($tokenn) . '">' . $button . '</a>
                                                                           </td>
                                                                       </tr>
                                                                   </table>
@@ -330,7 +330,7 @@ function sendmailuser($nama, $email, $content, $password, $tokenn, $button)
                                           <p>
                                               E-mail ini dibuat secara otomatis, mohon tidak membalas. Jika butuh bantuan,
                                               dapat menyampikan melalui
-                                              <a href="https://api.whatsapp.com/send?phone=6281290908320"> Chat
+                                              <a href="https://api.whatsapp.com/send?phone=6281290908321"> Chat
                                                   Whatsapp</a></p>
                                       </td>
                                   </tr>
@@ -691,7 +691,7 @@ function sendmailverifikasi($nama, $email, $content, $password, $tokenn, $button
                                           <p>
                                               E-mail ini dibuat secara otomatis, mohon tidak membalas. Jika butuh bantuan,
                                               dapat menyampikan melalui
-                                              <a href="https://api.whatsapp.com/send?phone=6281290908320"> Chat
+                                              <a href="https://api.whatsapp.com/send?phone=6281290908321"> Chat
                                                   Whatsapp</a></p>
                                       </td>
                                   </tr>

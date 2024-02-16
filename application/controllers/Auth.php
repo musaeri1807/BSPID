@@ -227,6 +227,13 @@ class Auth extends CI_Controller
 		$this->load->view('v_lupaspassword', $data);
 	}
 
+	public function changepassword()
+	{
+		$data['judul'] 		= "Ubah Kata Sandi BSPID";
+		$this->load->helper('form');
+		$this->load->view('v_changepassword', $data);
+	}
+
 
 	public function logout()
 	{
