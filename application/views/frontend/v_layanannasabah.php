@@ -24,7 +24,8 @@
 
 
                     </p>
-                    <a href="" class="btn btn-primary py-md-3 px-md-5">Hubungi Kami</a>
+                    <a href="<?php echo base_url('Auth/signup'); ?>" class="btn btn-primary py-md-3 px-md-5">Daftar Nasabah</a>
+                    
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
