@@ -41,15 +41,10 @@ class Auth extends CI_Controller
 			$Q = $this->db->query("SELECT * FROM tbluserlogin WHERE field_email='$username' OR field_handphone='$username'");
 			$data  = $Q->row();
 			$N		= $Q->num_rows();
-			// var_dump($data);
-			// echo $data->field_user_id;
-			// die();
-
-
 			if ($N > 0) {
 				if (1 == $data->field_status_aktif or $username == $data->field_email and $username == $data->field_handphone) {
 					if (!password_verify($pass, $data->field_password) == true) {
-						$this->session->set_flashdata('message', 'Username atau Password Anda Salah.');
+						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username atau Password Anda Salah.</div>');
 						redirect('Auth');
 					} else {
 						$session = [
@@ -61,17 +56,12 @@ class Auth extends CI_Controller
 						redirect('Home');
 					}
 				} else {
-
-					// echo "AKUN BELUM AKTIF";
-					// $this->session->set_flashdata('message', 'Akun Belum Aktif.');
 					$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Akun Belum Aktif.!! .</div>');
 					redirect('Auth');
 				}
 			} else {
-				// $this->session->set_flashdata('message', 'Akun Belum Terdaftar.');
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar.!! .</div>');
 				redirect('Auth');
-				// echo "AKUN BELUM TERDAFTAR";
 			}
 		} else {
 			$this->session->set_flashdata('message', validation_errors());
@@ -220,25 +210,97 @@ class Auth extends CI_Controller
 		}
 	}
 
-	public function lupapassword()
+	public function lupapassword() //masih belum selesai tokenn
 	{
-		$data['judul'] 		= "Lupa Password BSPID";
-		$this->load->helper('form');
-		$this->load->view('v_lupaspassword', $data);
+		$this->form_validation->set_rules('email', 'Email', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$data['Title'] 		= "Lupa Kata Sandi";
+			$this->load->helper('form');
+			$data['Judulmain'] = "Mengatur Sandi";
+			$this->load->view('v_lupaspassword', $data);
+		} else {
+			$email = $this->input->post('email');
+			//Mencari email yang di input
+			$Q 	= $this->db->query("SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1");
+			$Q->num_rows();
+			$row 	= $Q->row();
+			$row->field_status_aktif;
+			if ($Q->num_rows() > 0) {
+				if ($row->field_status_aktif == 1) {
+					$password = rand();
+					$pass = password_hash($password, PASSWORD_DEFAULT);
+					$tokenn = base64_encode(random_bytes(32));
+					$data = array(
+						'field_password' => $pass,
+						'field_token' => $tokenn
+					);
+
+					$this->db->where('field_email', $email);
+					$this->db->update('tbluserlogin', $data);
+					$nama = $row->field_nama;
+					$this->_sendEmail($email, 'Reset Password', $nama, 'Reset Password', 'Ubah Sandi', $password, $tokenn);
+					redirect('Auth/lupapassword', 'refresh');
+				} else {
+					$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Anda Belum Aktifasi...!, Segerah Cek Email..! </div>');
+					redirect('Auth/lupapassword');
+				}
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email tidak ditemukan!!.</div>');
+				redirect('Auth/lupapassword');
+			}
+		}
+	}
+
+	public function ResetPassword()
+	{
+
+		$email = $this->input->get('email');
+		$token = $this->input->get('token');
+
+		$user = $this->db->get_where('tbluserlogin', ['field_email' => $email, 'field_token' => $token])->row_array();
+
+		if ($user) {
+			$this->session->set_userdata('reset_email', $email);
+			$this->changePassword();
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Reset password gagal! Salah email atau token.</div>');
+			redirect('auth');
+		}
 	}
 
 	public function changepassword()
 	{
-		$data['judul'] 		= "Ubah Kata Sandi BSPID";
-		$this->load->helper('form');
-		$this->load->view('v_changepassword', $data);
+		if (!$this->session->userdata('reset_email')) {
+			redirect('auth');
+		}
+
+		$this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[3]|matches[password2]');
+		$this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[3]|matches[password1]');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data['judul'] 	= "Ubah Kata Sandi";
+			$this->load->helper('form');
+			$this->load->view('v_changepassword', $data);
+		} else {
+			$password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+			$email = $this->session->userdata('reset_email');
+
+			$this->db->set('field_password', $password);
+			$this->db->where('field_email', $email);
+			$this->db->update('tbluserlogin');
+
+			$this->session->unset_userdata('reset_email');
+
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kata sandi telah diubah! Silahkan masuk.</div>');
+			redirect('auth');
+		}
 	}
 
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('Auth');
+		redirect('Auth', 'refresh');
 	}
 
 	//verifikasi
@@ -325,72 +387,103 @@ class Auth extends CI_Controller
 	public function send_mail()
 	{
 		$email = $this->input->post('email');
+		//Mencari email yang di input
+		$query 	= $this->db->query("SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1");
+		$N 		= $query->num_rows();
+		$row 	= $query->row();
 
-		$sql = "SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1";
-		$get_nas = $this->db->query($sql);
+		if ($N > 0) {
+			$Q 	= $this->db->query("SELECT * FROM tbluserlogin WHERE field_email ='$email' AND field_status_aktif='1' LIMIT 1");
+			$X 	= $Q->num_rows();
+			$R 	= $Q->row_array();
+			$password = rand();
+			$pass = password_hash($password, PASSWORD_DEFAULT);
+			$data = array(
+				'field_password' => $pass
+			);
+			if ($X > 0) {
+				$this->db->where('field_email', $email);
+				$this->db->update('tbluserlogin', $data);
+				$tokenn = base64_encode(random_bytes(32));
+				// $tokenn = md5(date('H:I:S'));
+				$nama = $row->field_nama;
+				$from = 'Bank Sampah Pintar';
+				if ($this->input->post('pilih') == 'forgot') {
+					$subject = 'Reset Password';
+					$content = 'Reset Password';
+					$button  = 'Ubah Sandi';
+				} else {
+					$subject = 'Akun Verifikasi';
+					$content = 'Pendaftaran';
+					$button  = 'Aktifkan';
+				}
+				// PHPMailer object
+				// $response = false;
+				$mail = new PHPMailer();
+				// SMTP configuration
+				$mail->isSMTP();
+				$mail->Host     = SERVERMAIL; //sesuaikan sesuai nama domain hosting/server yang digunakan
+				$mail->SMTPAuth = true;
+				$mail->Username = EMAIL; // user email
+				$mail->Password = PASSMAIL; // password email
+				$mail->SMTPSecure = 'ssl';
+				$mail->Port     = 465;
 
-		$query = $this->db->query("SELECT * FROM tbluserlogin WHERE field_email ='$email' LIMIT 1");
-		$row = $query->row();
-		$password = rand();
-		$pass = password_hash($password, PASSWORD_DEFAULT);
-		$data = array(
-			'field_password' => $pass
-		);
+				$mail->setFrom(EMAIL, FROM); // user email
+				$mail->addReplyTo('', 'noreply'); //user email
+				$mail->addAddress($this->input->post('email')); //email tujuan pengiriman email
+				$mail->Subject = $subject; //subject email
+				$mail->isHTML(true);
+				$mail->Body = sendmailuser($nama, $email, $content, $password, $tokenn, $button);
 
-		if ($get_nas->num_rows() > 0) {
-
-			$this->db->where('field_email', $email);
-			$this->db->update('tbluserlogin', $data);
-
-			$tokenn = md5(date('H:I:S'));
-			$nama = $row->field_nama;
-
-
-			$from = 'Bank Sampah Pintar';
-			if ($this->input->post('pilih') == 'forgot') {
-				$subject = 'Reset Password';
-				$content = 'Reset Password';
-				$button  = 'Ubah Sandi';
+				// Send email
+				if (!$mail->send()) {
+					echo 'Message could not be sent.';
+					echo 'Mailer Error: ' . $mail->ErrorInfo;
+				} else {
+					$this->session->set_flashdata('message', show_succ_msg('Password dikirim ke Email'));
+					redirect('Auth');
+				}
 			} else {
-				$subject = 'Akun Verifikasi';
-				$content = 'Pendaftaran';
-				$button  = 'Aktifkan';
-			}
 
-
-			// PHPMailer object
-			// $response = false;
-			$mail = new PHPMailer();
-
-			// SMTP configuration
-			$mail->isSMTP();
-			$mail->Host     = SERVERMAIL; //sesuaikan sesuai nama domain hosting/server yang digunakan
-			$mail->SMTPAuth = true;
-			$mail->Username = EMAIL; // user email
-			$mail->Password = PASSMAIL; // password email
-			$mail->SMTPSecure = 'ssl';
-			$mail->Port     = 465;
-
-			$mail->setFrom(EMAIL, $from); // user email
-			$mail->addReplyTo('', 'noreply'); //user email
-			$mail->addAddress($this->input->post('email')); //email tujuan pengiriman email
-			$mail->Subject = $subject; //subject email
-			$mail->isHTML(true);
-			$mail->Body = sendmailuser($nama, $email, $content, $password, $tokenn, $button);
-
-			// Send email
-			if (!$mail->send()) {
-				echo 'Message could not be sent.';
-				echo 'Mailer Error: ' . $mail->ErrorInfo;
-			} else {
-				// $out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
-				$this->session->set_flashdata('message', show_succ_msg('Password dikirim ke Email'));
-				redirect('Auth');
+				$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Anda Belum Aktifasi. !, Segerah Cek Email.! </div>');
+				redirect('Auth/lupapassword');
 			}
 		} else {
-			// $this->session->set_flashdata('message', '');
-			$this->session->set_flashdata('message', show_err_msg('Email tidak ditemukan'));
+
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email tidak ditemukan!!.</div>');
 			redirect('Auth/lupapassword');
+		}
+	}
+
+	private function _sendEmail($email, $subject, $nama, $content, $button, $password, $tokenn)
+	{
+		// PHPMailer object
+		// $response = false;
+		$mail = new PHPMailer();
+		// SMTP configuration
+		$mail->isSMTP();
+		$mail->Host     = SERVERMAIL; //sesuaikan sesuai nama domain hosting/server yang digunakan
+		$mail->SMTPAuth = true;
+		$mail->Username = EMAIL; // user email
+		$mail->Password = PASSMAIL; // password email
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port     = 465;
+
+		$mail->setFrom(EMAIL, FROM); // user email
+		$mail->addReplyTo('', 'noreply'); //user email
+		$mail->addAddress($email); //email tujuan pengiriman email
+		$mail->Subject = $subject; //subject email
+		$mail->isHTML(true);
+		$mail->Body = sendmailuser($nama, $email, $content, $password, $tokenn, $button);
+		// $mail->Body = $nama . '/' . $content . '/' . $button . '/' . $email . '/' . $tokenn;
+
+		// Send email
+		if (!$mail->send()) {
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {
+
+			$this->session->set_flashdata('message', show_succ_msg('Segera cek Email Anda'));
 		}
 	}
 }

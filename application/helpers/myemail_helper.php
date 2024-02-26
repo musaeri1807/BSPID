@@ -311,8 +311,8 @@ function sendmailuser($nama, $email, $content, $password, $tokenn, $button)
                                                                   <table border="0" cellspacing="0" cellpadding="0">
                                                                       <tr>
                                                                           <td>
-                                                                              <a href="' . base_url() . 'auth/changepassword?email=' . $email . '&token=' . urlencode($tokenn) . '" class="button button--green"
-                                                                                  target="' . base_url() . 'auth/changepassword?email=' . $email . '&token=' . urlencode($tokenn) . '">' . $button . '</a>
+                                                                              <a href="' . base_url() . 'auth/resetpassword?email=' . $email . '&token=' . urlencode($tokenn) . '" class="button button--green"
+                                                                                  target="' . base_url() . 'auth/resetpassword?email=' . $email . '&token=' . urlencode($tokenn) . '">' . $button . '</a>
                                                                           </td>
                                                                       </tr>
                                                                   </table>

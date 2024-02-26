@@ -50,7 +50,7 @@
         ?>
       </p>
 
-      <form action="<?php echo base_url('Auth/signup'); ?>" method="post">
+      <form action="<?php echo base_url('Auth/signup.html'); ?>" method="post">
         <div class="form-group has-feedback">
           <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name'); ?>">
           <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -80,8 +80,8 @@
           <input type="password" class="form-control " id="password" name="password" placeholder="Password" value="<?= set_value('password'); ?>">
           <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          Silakan klik <a href="<?php echo base_url('Auth'); ?>">|<b>Login</b> |</a><br>
-          Jika Kehilangan Akses Klik <a href="<?php echo base_url('Auth/lupapassword'); ?>">|<b>Lupa Password</b>|</a>
+          Silakan klik <a href="<?php echo base_url('Auth.html'); ?>">|<b>Login</b> |</a><br>
+          Jika Kehilangan Akses Klik <a href="<?php echo base_url('Auth/lupapassword.html'); ?>">|<b>Lupa Password</b>|</a>
         </div>
         <div class="row">
           <!-- <div class="col-xs-4 col-xs-8">
@@ -93,7 +93,7 @@
           </div> -->
 
           <div class="col-xs-offset-8 col-xs-4">
-            <button type="submit" class="btn btn-success btn-block btn-flat">Sign Up</button>
+            <button type="submit" class="btn btn-success btn-block btn-flat">Daftar</button>
           </div>
 
         </div>

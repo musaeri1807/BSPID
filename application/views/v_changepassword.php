@@ -30,7 +30,8 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?php echo base_url('Auth/changepassword'); ?>"><b>Ubah Kata Sandi</b></a>
+            <a href="<?php echo base_url('Auth/changepassword'); ?>"><b>Ubah Kata Sandi</b> <?= $this->session->userdata('reset_email'); ?></a>
+
         </div>
 
         <!-- /.login-logo -->
@@ -41,14 +42,16 @@
             echo $this->session->flashdata('message');
 
             ?>
-            <form action="<?php echo base_url('/Auth'); ?>" method="post">
+            <form action="<?php echo base_url('/Auth/changepassword'); ?>" method="post">
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" name="password" readonly>
+                    <input type="password" class="form-control" placeholder="Password" name="password1">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Konfirmasi Password" name="password" readonly>
+                    <input type="password" class="form-control" placeholder="Konfirmasi Password" name="password2">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="row">
                     <div class="col-xs-offset-8 col-xs-4">

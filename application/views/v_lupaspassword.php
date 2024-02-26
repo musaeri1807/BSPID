@@ -2,17 +2,17 @@
 <html>
 
 <head>
-   <meta charset="utf-8">
-     <title><?php echo $judul;?></title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="BSP,Bank Sampah Pintar, BSP, pok lisa" name="keywords">
-    <meta content="Digitalikasi Bank Sampah,bank sampah pintar,emas,gold,aplikasi,bersih" name="description">
+  <meta charset="utf-8">
+  <title><?php echo $Title; ?></title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="BSP,Bank Sampah Pintar, BSP, pok lisa" name="keywords">
+  <meta content="Digitalikasi Bank Sampah,bank sampah pintar,emas,gold,aplikasi,bersih" name="description">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
- 
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-     <!-- Favicon -->
+  <!-- Favicon -->
   <link href="<?php echo base_url(); ?>assets_frontend/img/icon_bspid.png" rel="icon">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
@@ -30,7 +30,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="<?php echo base_url('Auth/lupapassword'); ?>"><b>Reset Password</b></a>
+      <a href="<?php echo base_url('Auth/lupapassword.html'); ?>"><b><?php echo $Judulmain; ?></b></a>
     </div>
 
     <!-- /.login-logo -->
@@ -41,9 +41,10 @@
       echo $this->session->flashdata('message');
 
       ?>
-      <form action="<?php echo base_url('/Auth/send_mail'); ?>" method="post">
+
+      <form action="<?php echo base_url('/Auth/lupapassword.html'); ?>" method="post">
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email" name="email">
+          <input type="email" class="form-control" placeholder="Email" name="email" required>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
@@ -52,8 +53,8 @@
         </select>
 
         <div class="form-group has-feedback">
-          Anda tidak punya akun? Klik <a href="<?php echo base_url('Auth/signup'); ?>"">|<b>Registrasi</b> |</a> <br>
-          Silakan klik <a href="<?php echo base_url('Auth/login'); ?>">|<b>Login</b>|</a>
+          Anda tidak punya akun? Klik <a href="<?php echo base_url('Auth/signup.html'); ?>"">|<b>Registrasi</b> |</a> <br>
+          Silakan klik <a href=" <?php echo base_url('Auth/login.html'); ?>">|<b>Login</b>|</a>
         </div>
         <div class="row">
           <div class="col-xs-offset-8 col-xs-4">

@@ -48,20 +48,20 @@
         ?>
       </p>
 
-      <form action="<?php echo base_url('Auth/login'); ?>" method="post">
+      <form action="<?php echo base_url('Auth/login.html'); ?>" method="post">
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Email atau HP" name="txt_email">
+          <input type="text" class="form-control" placeholder="Email atau Nomor HP" name="txt_email" required>
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password" name="txt_password">
+          <input type="password" class="form-control" placeholder="Password" name="txt_password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
           <!-- <input type="password" class="form-control" placeholder="Password" name="password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-          Anda tidak punya akun? Klik <a href="<?= base_url('Auth/signup'); ?>">|<b>Registrasi</b> |</a><br>
-          Jika Kehilangan Akses Klik <a href="<?php echo base_url('Auth/lupapassword'); ?>">|<b>Lupa Password</b>|</a>
+          Anda tidak punya akun? Klik <a href="<?= base_url('Auth/signup.html'); ?>">|<b>Registrasi</b> |</a><br>
+          Jika Kehilangan Akses Klik <a href="<?php echo base_url('Auth/lupapassword.html'); ?>">|<b>Lupa Password</b>|</a>
         </div>
         <div class="row">
           <!-- <div class="col-xs-4 col-xs-8">

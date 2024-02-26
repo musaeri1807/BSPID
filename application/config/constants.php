@@ -103,4 +103,5 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 define('SERVERMAIL', 'mail.bspid.id');
 define('EMAIL', 'no-replay@bspid.id');
 define('PASSMAIL', 'Y3t,?@$BgX5f');
+define('FROM', 'Bank Sampah Pintar');
 //email
