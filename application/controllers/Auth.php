@@ -9,12 +9,12 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('session');
-		$this->load->model('M_auth');
-		$this->load->model('M_frontend');
 		require APPPATH . 'third_party/PHPMailer/Exception.php';
 		require APPPATH . 'third_party/PHPMailer/PHPMailer.php';
 		require APPPATH . 'third_party/PHPMailer/SMTP.php';
+		$this->load->library('session');
+		$this->load->model('M_auth');
+		$this->load->model('M_frontend');
 	}
 
 	public function index()

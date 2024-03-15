@@ -38,18 +38,13 @@ class AuthAdmin extends CI_Controller
 		if ($this->form_validation->run() == TRUE) {
 			$username = trim($_POST['username']);
 			$pass = trim($_POST['password']);
-			// $data = $this->M_auth->login($username);
-
 			$Q = $this->db->query("SELECT * FROM tblemployeeslogin WHERE field_email='$username' OR field_username='$username'");
 			$data  = $Q->row();
 			$N		= $Q->num_rows();
-			// var_dump($data);
-			// echo $data->field_user_id;
-			// die();
 			if ($N > 0) {
 				if (1 == $data->field_status_aktif or $username == $data->field_email and $username == $data->field_username) {
 					if (!password_verify($pass, $data->field_password) == true) {
-						$this->session->set_flashdata('message', 'Username atau Password Anda Salah.');
+						$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Username atau Password Anda Salah.</div>');
 						redirect('authadmin');
 					} else {
 						$session = [
@@ -67,17 +62,12 @@ class AuthAdmin extends CI_Controller
 						redirect('dashboard');
 					}
 				} else {
-
-					// echo "AKUN BELUM AKTIF";
-					// $this->session->set_flashdata('message', 'Akun Belum Aktif.');
 					$this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Akun Belum Aktif.!! .</div>');
 					redirect('authadmin');
 				}
 			} else {
-				// $this->session->set_flashdata('message', 'Akun Belum Terdaftar.');
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar.!! .</div>');
 				redirect('authadmin');
-				// echo "AKUN BELUM TERDAFTAR";
 			}
 		} else {
 			$this->session->set_flashdata('message', validation_errors());
