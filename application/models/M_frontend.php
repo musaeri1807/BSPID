@@ -59,9 +59,10 @@ class M_frontend extends CI_Model
         return $data->row();
     }
 
-    public function select_all_product()
+    public function select_all_product($idbranch)
     {
-        $sql = "SELECT * FROM tblproduct WHERE field_product_id !=7";
+        // $idbranch = '3172090003';
+        $sql = "SELECT * FROM tblproduct WHERE field_product_id !=7 AND field_branch={$idbranch}";
         $data = $this->db->query($sql);
         return $data->result();
     }

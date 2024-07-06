@@ -491,29 +491,38 @@
         <div class="mx-auto text-center mb-5" style="max-width: 500px;">
             <h6 class="text-primary text-uppercase">Produk</h6>
             <h1 class="display-5">Harga Sampah</h1>
-        </div>
-        <div class="owl-carousel product-carousel px-5">
-            <!-- looping -->
-            <?php
-            foreach ($P as $Produck) {
 
-            ?>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-white d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/<?php echo $Produck->field_image; ?>" alt="">
-                        <h6 class="mb-3"><?php echo $Produck->field_product_name; ?></h6>
-                        <h5 class="text-primary mb-0"><?php echo "Rp. " . $Produck->field_price; ?></h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
-                            <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
+        </div>
+        <?php
+        // echo $this->session->userdata('status');
+        if ($this->session->userdata('status') == '') {
+            echo "TIDAK LOGIN";
+        } else {
+            echo "LOGIN";
+        ?>
+            <div class="owl-carousel product-carousel px-5">
+                <!-- looping -->
+                <?php
+                foreach ($P as $Produck) {
+                ?>
+                    <div class="pb-5">
+                        <div class="product-item position-relative bg-white d-flex flex-column text-center">
+                            <img class="img-fluid mb-4" src="<?php echo base_url(); ?>assets_frontend/img/produk/<?php echo $Produck->field_image; ?>" alt="">
+                            <h6 class="mb-3"><?php echo $Produck->field_product_name; ?></h6>
+                            <h5 class="text-primary mb-0"><?php echo "Rp. " . $Produck->field_price; ?></h5>
+                            <div class="btn-action d-flex justify-content-center">
+                                <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
+                                <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php
-            }
-            ?>
-            <!-- looping115789_trash_icon.png -->
-        </div>
+                <?php
+                }
+                ?>
+                <!-- looping115789_trash_icon.png -->
+            </div>
+        <?php } ?>
+
     </div>
 </div>
 <!-- Products End -->

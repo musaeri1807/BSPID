@@ -48,8 +48,9 @@ class Auth extends CI_Controller
 						redirect('Auth');
 					} else {
 						$session = [
-							'userdata' => $data,
-							'status' => "Loged in",
+							'userdata' 	=> $data,
+							'status' 	=> "Loged in",
+							'branch' 	=> $data->field_branch,
 							'logged_in' => TRUE
 						];
 						$this->session->set_userdata($session);

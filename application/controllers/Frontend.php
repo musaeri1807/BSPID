@@ -9,16 +9,25 @@ class Frontend extends CI_Controller
         parent::__construct();
         date_default_timezone_set('Asia/Jakarta');
         $this->load->model('M_frontend');
+        $this->load->library('session');
     }
 
     public function index()
     {
+        $idbranch = $this->session->userdata('branch');
+
+
         $data['TT'] = $this->M_frontend->total_tonase();
         $data['D'] = $this->M_frontend->total_desposit();
         $data['W'] = $this->M_frontend->total_withdraw();
         $data['N'] = $this->M_frontend->total_nasabah();
         $data['S'] = $this->M_frontend->total_sampah();
-        $data['P'] = $this->M_frontend->select_all_product();
+        if ($idbranch == '') {
+            # code...
+        } else {
+            $data['P'] = $this->M_frontend->select_all_product($idbranch);
+        }
+
         $data['C'] = $this->M_frontend->select_all_branch();
         $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
         $data['TC'] = $this->M_frontend->total_unit();
