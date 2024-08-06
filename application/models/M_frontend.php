@@ -23,8 +23,9 @@ class M_frontend extends CI_Model
         return $data->row();
     }
     public function total_sampah()
-    {
-        $sql = "SELECT SUM(field_quantity) AS TOTAL_SAMPAH FROM tbldepositdetail WHERE field_product !=7";
+    { //
+        $sql = "SELECT SUM(DD.field_quantity) AS TOTAL_SAMPAH FROM tbldeposit D JOIN tbldepositdetail DD ON D.field_trx_deposit=DD.field_trx_deposit 
+                WHERE DD.field_product !=7 AND D.field_status='S'";
         $data = $this->db->query($sql);
         return $data->row();
     }
