@@ -215,7 +215,12 @@ $config['directory_trigger'] = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+// $config['log_threshold'] = 0;
+if ($_SERVER['SERVER_NAME'] == 'localhost') {
+    $config['log_threshold'] = 1; // Tingkat detail tinggi untuk pengembangan   
+} else {
+    $config['log_threshold'] = 1; // Tingkat detail sedang untuk produksi    
+}
 
 /*
 |--------------------------------------------------------------------------
