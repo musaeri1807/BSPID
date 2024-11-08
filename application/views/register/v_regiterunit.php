@@ -22,15 +22,32 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?= base_url(); ?>/assets_/dist/css/skins/_all-skins.min.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      $("#provinsi").change(function() {
+        var url = "<?php echo site_url('frontend/add_ajax_kab'); ?>/" + $(this).val();
+        $('#kabupaten').load(url);
+        return false;
+      })
+
+
+      $("#kabupaten").change(function() {
+        var url = "<?php echo site_url('frontend/add_ajax_kec'); ?>/" + $(this).val();
+        $('#kecamatan').load(url);
+        return false;
+      })
+
+      $("#kecamatan").change(function() {
+        var url = "<?php echo site_url('frontend/add_ajax_des'); ?>/" + $(this).val();
+        $('#desa').load(url);
+        return false;
+      })
+    });
+  </script>
 </head>
 <!-- ADD THE CLASS fixed TO GET A FIXED HEADER AND SIDEBAR LAYOUT -->
 <!-- the fixed layout is not compatible with sidebar-mini -->
@@ -93,7 +110,7 @@
       <!-- Main content -->
       <section class="content">
         <div class="callout callout-info">
-          <p>Kantor Pusat Bank Sampah Pintar ( https://bspid.id ) Jl Raya Jatinegara Kaum Jakarta Timur Hubungi kami di  085780390850 atau Email admin@bspid.id</p>
+          <p>Kantor Pusat Bank Sampah Pintar ( https://bspid.id ) Jl Raya Jatinegara Kaum Jakarta Timur Hubungi kami di 085780390850 atau Email admin@bspid.id</p>
         </div>
         <?= $this->session->flashdata('message'); ?>
         <form action="<?= base_url('Frontend/unit'); ?>" method="post">
@@ -116,7 +133,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Nama Bank Sampah</label>
-                <input type="text" class="form-control " id="bank_sampah" name="bank_sampah" placeholder="bama Bank Sampah" value="<?= set_value('bank_sampah'); ?>">
+                <input type="text" class="form-control " id="bank_sampah" name="bank_sampah" placeholder="Nama Bank Sampah" value="<?= set_value('bank_sampah'); ?>">
                 <?= form_error('bank_sampah', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
               <div class="form-group">
@@ -270,27 +287,7 @@
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url(); ?>/assets_/dist/js/demo.js"></script>
 
-  <script>
-    $(document).ready(function() {
-      $("#provinsi").change(function() {
-        var url = "<?php echo site_url('Frontend/add_ajax_kab'); ?>/" + $(this).val();
-        $('#kabupaten').load(url);
-        return false;
-      })
 
-      $("#kabupaten").change(function() {
-        var url = "<?php echo site_url('Frontend/add_ajax_kec'); ?>/" + $(this).val();
-        $('#kecamatan').load(url);
-        return false;
-      })
-
-      $("#kecamatan").change(function() {
-        var url = "<?php echo site_url('Frontend/add_ajax_des'); ?>/" + $(this).val();
-        $('#desa').load(url);
-        return false;
-      })
-    });
-  </script>
 </body>
 
 </html>

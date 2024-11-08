@@ -494,9 +494,9 @@
 
         </div>
         <?php
-        // echo $this->session->userdata('status');
+
         if ($this->session->userdata('status') == '') {
-            echo "TIDAK LOGIN";
+            echo ".";
         } else {
             echo "LOGIN";
         ?>

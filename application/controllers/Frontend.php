@@ -14,26 +14,24 @@ class Frontend extends CI_Controller
 
     public function index()
     {
-        $idbranch = $this->session->userdata('branch');
-
-
-        $data['TT'] = $this->M_frontend->total_tonase();
-        $data['D'] = $this->M_frontend->total_desposit();
-        $data['W'] = $this->M_frontend->total_withdraw();
-        $data['N'] = $this->M_frontend->total_nasabah();
-        $data['S'] = $this->M_frontend->total_sampah();
+        $idbranch       = $this->session->userdata('branch');
+        var_dump($idbranch);
+        $data['TT']     = $this->M_frontend->total_tonase();
+        $data['D']      = $this->M_frontend->total_desposit();
+        $data['W']      = $this->M_frontend->total_withdraw();
+        $data['N']      = $this->M_frontend->total_nasabah();
+        $data['S']      = $this->M_frontend->total_sampah();
         if ($idbranch == '') {
-            # code...
         } else {
             $data['P'] = $this->M_frontend->select_all_product($idbranch);
         }
 
-        $data['C'] = $this->M_frontend->select_all_branch();
+        $data['C']          = $this->M_frontend->select_all_branch();
         $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
-        $data['TC'] = $this->M_frontend->total_unit();
+        $data['TC']         = $this->M_frontend->total_unit();
 
-        $data['telpon'] = '085780390850';
-        $data['tagline'] = 'Digitalisasi Sampah';
+        $data['telpon']     = '085780390850';
+        $data['tagline']    = 'Digitalisasi Sampah';
         $Comment = 'Alhamdulillah ya selama 2 tahun lebih menjadi bank sampah unit di Bank Sampah Pintar pelayanannya bagus.
                 Penjemputan ke unit juga lancar. Kami juga mendapatkan banyak manfaat salah satunya bisa mengikuti banyak seminar dan pelatihan.
                 Selain itu, kami juga merasakan dampak positif terhadap lingkungan.
@@ -46,7 +44,6 @@ class Frontend extends CI_Controller
 
         //rumus tonase
 
-
         // $this->load->view('frontend/v_index', $data);
         $this->load->view('frontend/v_header', $data);
         $this->load->view('frontend/v_homepage', $data);
@@ -55,11 +52,11 @@ class Frontend extends CI_Controller
 
     public function tentangkami()
     {
-        $data['C'] = $this->M_frontend->select_all_branch();
+        $data['C']          = $this->M_frontend->select_all_branch();
         $data['titale']     = "Situs Bank Sampah Pintar Online | BSPID";
         $data['totalunit']  = "3";
-        $data['telpon'] = '085780390850';
-        $data['tagline'] = 'Digitalisasi Sampah';
+        $data['telpon']     = '085780390850';
+        $data['tagline']    = 'Digitalisasi Sampah';
         $this->load->view('frontend/v_header', $data);
         $this->load->view('frontend/v_tentangkami', $data);
         $this->load->view('frontend/v_footer', $data);
@@ -129,30 +126,30 @@ class Frontend extends CI_Controller
             $this->load->view('register/v_regiterunit', $data);
         } else {
 
-            $email = $this->input->post('email', true);
-            $ID = $this->db->query('SELECT field_employees_id AS IDUSER FROM tblemployeeslogin ORDER BY field_user_id DESC LIMIT 1');
-            $result = $ID->row();
-            $NO = $result->IDUSER;
-            $th = date('y');
-            $bln = date('m');
-            $Nomor = substr($NO, 4);
-            $no = $Nomor + 1;
-            $char = $th . $bln;
-            $Iduser = $char . sprintf("%04s", $no);
-            $user = [
-                'field_employees_id' =>  $Iduser,
-                'field_name_officer' => $this->input->post('name'),
-                'field_username' => $this->input->post('username'),
-                'field_role' => 'AMR',
-                'field_date_reg' => date('Y-m-d'),
-                'field_branch' => $this->input->post('desa'),
-                'field_email' => htmlspecialchars($email),
-                'field_password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'Password' => $this->input->post('password'),
-                'field_token' => md5(date('d-m-Y H:i:s') . rand()),
-                'field_handphone' => $this->input->post('nohp'),
-                'field_status_aktif' => '2',
-                'field_log' => date('Y-m-d H:i:s')
+            $email      = $this->input->post('email', true);
+            $ID         = $this->db->query('SELECT field_employees_id AS IDUSER FROM tblemployeeslogin ORDER BY field_user_id DESC LIMIT 1');
+            $result     = $ID->row();
+            $NO         = $result->IDUSER;
+            $th         = date('y');
+            $bln        = date('m');
+            $Nomor      = substr($NO, 4);
+            $no         = $Nomor + 1;
+            $char       = $th . $bln;
+            $Iduser     = $char . sprintf("%04s", $no);
+            $user       = [
+                'field_employees_id'    =>  $Iduser,
+                'field_name_officer'    => $this->input->post('name'),
+                'field_username'        => $this->input->post('username'),
+                'field_role'            => 'AMR',
+                'field_date_reg'        => date('Y-m-d'),
+                'field_branch'          => $this->input->post('desa'),
+                'field_email'           => htmlspecialchars($email),
+                'field_password'        => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'Password'              => $this->input->post('password'),
+                'field_token'           => md5(date('d-m-Y H:i:s') . rand()),
+                'field_handphone'       => $this->input->post('nohp'),
+                'field_status_aktif'    => '2',
+                'field_log'             => date('Y-m-d H:i:s')
             ];
 
             $QUERY = $this->db->query('SELECT field_account_numbers AS NA FROM tblbranch ORDER BY field_id DESC LIMIT 1');
@@ -181,6 +178,10 @@ class Frontend extends CI_Controller
             redirect('Frontend/unit');
         }
     }
+
+
+
+
 
     function add_ajax_kab($id_prov)
     {
