@@ -30,7 +30,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a href="<?php echo base_url('Auth/lupapassword.html'); ?>"><b><?php echo $Judulmain; ?></b></a>
+      <a href="<?php echo base_url('Auth/lupapassword'); ?>"><b><?php echo $Judulmain; ?></b></a>
     </div>
 
     <!-- /.login-logo -->
@@ -42,7 +42,7 @@
 
       ?>
 
-      <form action="<?php echo base_url('/Auth/lupapassword.html'); ?>" method="post">
+      <form action="<?php echo base_url('/Auth/lupapassword'); ?>" method="post">
         <div class="form-group has-feedback">
           <input type="email" class="form-control" placeholder="Email" name="email" required>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -53,8 +53,8 @@
         </select>
 
         <div class="form-group has-feedback">
-          Anda tidak punya akun? Klik <a href="<?php echo base_url('Auth/signup.html'); ?>"">|<b>Registrasi</b> |</a> <br>
-          Silakan klik <a href=" <?php echo base_url('Auth/login.html'); ?>">|<b>Login</b>|</a>
+          Anda tidak punya akun? Klik <a href="<?php echo base_url('Auth/signup'); ?>"">|<b>Registrasi</b> |</a> <br>
+          Silakan klik <a href=" <?php echo base_url('Auth/login'); ?>">|<b>Login</b>|</a>
         </div>
         <div class="row">
           <div class="col-xs-offset-8 col-xs-4">
