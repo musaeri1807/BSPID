@@ -15,7 +15,6 @@ class Frontend extends CI_Controller
     public function index()
     {
         $idbranch       = $this->session->userdata('branch');
-        var_dump($idbranch);
         $data['TT']     = $this->M_frontend->total_tonase();
         $data['D']      = $this->M_frontend->total_desposit();
         $data['W']      = $this->M_frontend->total_withdraw();
