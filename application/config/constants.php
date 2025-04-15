@@ -94,10 +94,11 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 } else {
     // Online
     define('HOSTNAME', 'localhost');
-    define('USERNAME', 'u1733358_vpsbsp');
-    define('PASSWORD', 'w%{%bJog*Yg9');
-    define('DATABASE', 'u1733358_vpsbsp');
+    define('USERNAME', 'u602049557_BSP4dmiN');
+    define('PASSWORD', 'A5]yk2*]Zg5');
+    define('DATABASE', 'u602049557_BSPpr0d');
 }
+
 
 //email
 define('SERVERMAIL', 'mail.bspid.id');

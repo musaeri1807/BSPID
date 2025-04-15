@@ -11,8 +11,7 @@ class Mutasi extends AUTH_Controller
 
 	public function index()
 	{
-		
-		$data['userdata'] 	= $this->userdata;		
+		$data['userdata'] 	= $this->userdata;
 		$id = $this->userdata->field_member_id;
 
 

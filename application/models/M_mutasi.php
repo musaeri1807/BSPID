@@ -8,11 +8,8 @@ class M_mutasi extends CI_Model
 		// $data = $this->db->get('tbltrxmutasisaldo');
 
 		$sql = "SELECT * FROM tbltrxmutasisaldo WHERE field_member_id='{$id}' ORDER BY field_id_saldo DESC LIMIT 7";
-
 		$data = $this->db->query($sql);
-
 		// return $data->result();
-
 		return $data->result();
 	}
 }
