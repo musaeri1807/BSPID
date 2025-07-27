@@ -143,7 +143,6 @@
                 <select name="provinsi" class="form-control" id="provinsi">
                   <option value="<?php echo $nasabah->Provinsi_N; ?>"><?php echo $nasabah->PROVINSI; ?></option>
                   <?php
-
                   foreach ($provinsi as $prov) {
                     echo '<option value="' . $prov->field_provinsi_id . '">' . $prov->field_nama_provinsi . '</option>';
                   }

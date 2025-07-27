@@ -87,13 +87,17 @@ defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest auto
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
     // locahost
-    define('HOSTNAME', 'localhost');
-    define('USERNAME', 'root');
-    define('PASSWORD', '');
-    define('DATABASE', 'local_vpsbsp');
+    // define('HOSTNAME', 'localhost');
+    // define('USERNAME', 'root');
+    // define('PASSWORD', '');
+    // define('DATABASE', 'local_vpsbsp');
+    define('HOSTNAME', 'srv1867.hstgr.io');
+    define('USERNAME', 'u602049557_BSP4dmiN');
+    define('PASSWORD', 'A5]yk2*]Zg5');
+    define('DATABASE', 'u602049557_BSPpr0d');
 } else {
     // Online
-    define('HOSTNAME', 'localhost');
+    define('HOSTNAME', 'srv1867.hstgr.io');
     define('USERNAME', 'u602049557_BSP4dmiN');
     define('PASSWORD', 'A5]yk2*]Zg5');
     define('DATABASE', 'u602049557_BSPpr0d');
@@ -101,8 +105,8 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 
 
 //email
-define('SERVERMAIL', 'mail.bspid.id');
-define('EMAIL', 'no-replay@bspid.id');
-define('PASSMAIL', 'Y3t,?@$BgX5f');
+define('SERVERMAIL', 'smtp.hostinger.com');
+define('EMAIL', 'info@bsp.my.id');
+define('PASSMAIL', '+&/f*Tr+L6v');
 define('FROM', 'Bank Sampah Pintar');
 //email
