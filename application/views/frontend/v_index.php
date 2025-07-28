@@ -89,7 +89,7 @@
                     </div>
                 </div> -->
                 <!-- <a href="contact.html" class="nav-item nav-link">Kontak</a> -->
-                <a href="<?php echo base_url('auth') ?>" class="nav-item nav-link">Login</a>
+                <a href="https://bsp.my.id/" class="nav-item nav-link">Login</a>
             </div>
         </div>
     </nav>
